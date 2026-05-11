@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Гід: Земля та будинок в Португалії</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:    #1B3A6B;
+  --navy2:   #162F5A;
+  --teal:    #0D9488;
+  --teal2:   #0F766E;
+  --tealLt:  #CCFBF1;
+  --sand:    #F7F4EF;
+  --white:   #FFFFFF;
+  --dark:    #1E293B;
+  --mid:     #475569;
+  --muted:   #94A3B8;
+  --border:  #E2E8F0;
+  --amber:   #D97706;
+  --amberLt: #FEF3C7;
+  --red:     #DC2626;
+  --redLt:   #FEE2E2;
+  --green:   #16A34A;
+  --greenLt: #DCFCE7;
+  --purple:  #7C3AED;
+  --purpleLt:#EDE9FE;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--sand);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 4rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 80% 50%, #0D948820 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.hero-flag {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(120px, 18vw, 220px);
+  opacity: .07;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-52%) translateX(6px)} }
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  color: var(--teal);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .6s .2s forwards;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.05;
+  max-width: 700px;
+  opacity: 0;
+  animation: fadeUp .7s .35s forwards;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--teal);
+}
+.hero-sub {
+  font-size: 1.1rem;
+  color: #CADCFC;
+  max-width: 520px;
+  margin-top: 1.5rem;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp .7s .5s forwards;
+}
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 2.5rem;
+  opacity: 0;
+  animation: fadeUp .7s .65s forwards;
+}
+.hero-tag {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #CADCFC;
+  font-size: .78rem;
+  padding: .35rem .9rem;
+  border-radius: 100px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .04em;
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  color: rgba(255,255,255,.3);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  animation: bounce 2s infinite;
+}
+.scroll-hint::after {
+  content: '↓';
+  font-size: 1.2rem;
+}
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(22px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── NAV ── */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(27,58,107,.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-btn {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.5);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  font-weight: 500;
+  padding: .9rem 1.1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.nav-btn:hover { color: rgba(255,255,255,.85); }
+.nav-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+/* ── SECTIONS ── */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: none;
+}
+.section.active { display: block; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.section-num {
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .15em;
+  color: var(--teal);
+  background: var(--tealLt);
+  padding: .25rem .7rem;
+  border-radius: 4px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.08);
+}
+
+/* ── LAND TYPES ── */
+.land-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.land-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform .25s, box-shadow .25s;
+}
+.land-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,.1); }
+.land-header {
+  padding: 1.8rem 1.5rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.land-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.land-card-body { padding: 0 1.5rem 1.5rem; }
+.land-badge {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .3rem .8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.land-desc { font-size: .9rem; color: var(--mid); line-height: 1.7; margin-bottom: 1rem; }
+.land-list { list-style: none; }
+.land-list li {
+  font-size: .85rem;
+  color: var(--dark);
+  padding: .35rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+}
+.land-list li:last-child { border-bottom: none; }
+.land-list li::before { content: '→'; color: var(--muted); flex-shrink: 0; margin-top: 1px; }
+
+/* ── GLOSSARY ── */
+.glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; }
+.glos-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  border-left: 3px solid var(--teal);
+  transition: border-color .2s, box-shadow .2s;
+  cursor: default;
+}
+.glos-item:hover { border-left-color: var(--navy); box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+.glos-term {
+  font-family: 'DM Mono', monospace;
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: .4rem;
+}
+.glos-def { font-size: .88rem; color: var(--mid); line-height: 1.6; }
+.glos-badge {
+  display: inline-block;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: .15rem .5rem;
+  border-radius: 4px;
+  margin-left: .5rem;
+  vertical-align: middle;
+  background: var(--tealLt);
+  color: var(--teal2);
+}
+
+/* ── FLOW STEPS ── */
+.flow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.flow-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem 1.3rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: transform .2s, box-shadow .2s;
+}
+.flow-item:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,.07); }
+.flow-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-size: .85rem;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
+.flow-title { font-size: .95rem; font-weight: 600; color: var(--dark); margin-bottom: .3rem; }
+.flow-sub  { font-size: .82rem; color: var(--mid); line-height: 1.6; }
+.flow-meta {
+  display: inline-block;
+  margin-top: .5rem;
+  font-size: .75rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--teal);
+  background: var(--tealLt);
+  padding: .15rem .5rem;
+  border-radius: 4px;
+}
+
+/* ── CHECK ALGORITHM ── */
+.check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
+.check-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem;
+  display: flex;
+  gap: 1rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.check-item:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,.07); }
+.check-num {
+  width: 34px; height: 34px;
+  background: #059669;
+  color: var(--white);
+  border-radius: 50%;
+  font-size: .85rem; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
+.check-label { font-size: .95rem; font-weight: 600; color: var(--dark); margin-bottom: .2rem; }
+.check-where { font-size: .78rem; color: var(--teal); font-family: 'DM Mono', monospace; margin-bottom: .3rem; }
+.check-what  { font-size: .82rem; color: var(--mid); line-height: 1.5; }
+.check-cost  { font-size: .78rem; font-weight: 600; color: #059669; margin-top: .4rem; }
+
+/* ── BUILD STEPS ── */
+.build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+@media(max-width:900px){ .build-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:560px){ .build-grid { grid-template-columns: 1fr; } }
+.build-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.build-item:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,.07); }
+.build-item.final {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.build-item.final .build-title,
+.build-item.final .build-sub,
+.build-item.final .build-dur { color: var(--white) !important; }
+.build-item.final .build-num { background: var(--white); color: var(--teal); }
+.build-top { display: flex; align-items: center; gap: .7rem; margin-bottom: .6rem; }
+.build-num {
+  width: 28px; height: 28px;
+  background: var(--purple);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: .78rem; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
+.build-title { font-size: .92rem; font-weight: 600; color: var(--dark); }
+.build-sub  { font-size: .82rem; color: var(--mid); line-height: 1.55; margin-bottom: .5rem; }
+.build-dur  { font-size: .75rem; font-family: 'DM Mono', monospace; color: var(--muted); }
+
+/* ── UTILITIES ── */
+.utils-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.util-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+.util-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,.1); }
+.util-header {
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--white);
+}
+.util-icon { font-size: 1.4rem; }
+.util-title { font-size: 1.1rem; font-weight: 600; }
+.util-body { padding: 1.2rem 1.4rem; }
+.util-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .88rem;
+}
+.util-row:last-child { border-bottom: none; }
+.util-row-label { color: var(--dark); }
+.util-row-val { font-weight: 600; font-family: 'DM Mono', monospace; font-size: .82rem; }
+.util-where { font-size: .78rem; color: var(--teal); font-family: 'DM Mono', monospace; margin-bottom: .8rem; }
+.util-auto {
+  background: linear-gradient(135deg, #E0F2FE 0%, #CCFBF1 100%);
+  border-radius: 10px;
+  padding: .8rem 1rem;
+  font-size: .82rem;
+  color: #0F766E;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+/* ── TEAM ── */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.team-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.3rem;
+  border-left: 4px solid var(--navy);
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.team-card:hover { border-left-color: var(--teal); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,.07); }
+.team-role { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: .25rem; }
+.team-when {
+  display: inline-block;
+  font-size: .68rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+  padding: .18rem .55rem; border-radius: 4px;
+  background: var(--purpleLt); color: var(--purple);
+  margin-bottom: .6rem;
+}
+.team-what { font-size: .85rem; color: var(--mid); line-height: 1.6; margin-bottom: .6rem; }
+.team-cost { font-size: .88rem; font-weight: 600; color: var(--navy); font-family: 'DM Mono', monospace; }
+
+/* ── PERMITS ── */
+.permits-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.permit-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem 1.3rem;
+  border-left: 3px solid var(--teal);
+  transition: box-shadow .2s, transform .2s;
+}
+.permit-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.07); transform: translateY(-2px); }
+.permit-name { font-size: .95rem; font-weight: 600; color: var(--dark); margin-bottom: .3rem; }
+.permit-type { font-size: .75rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; margin-bottom: .5rem; }
+.permit-desc { font-size: .84rem; color: var(--mid); line-height: 1.6; margin-bottom: .6rem; }
+.permit-where { font-size: .78rem; color: var(--teal); font-family: 'DM Mono', monospace; }
+.permit-cost  { font-size: .82rem; font-weight: 600; color: var(--navy); font-family: 'DM Mono', monospace; margin-top: .4rem; }
+
+/* ── BUDGET TABLE ── */
+.budget-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0,0,0,.05);
+}
+.budget-table { width: 100%; border-collapse: collapse; }
+.budget-table th {
+  background: var(--navy);
+  color: var(--white);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 1rem 1.2rem;
+  text-align: left;
+}
+.budget-table td {
+  padding: .9rem 1.2rem;
+  font-size: .88rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.budget-table tr:last-child td { border-bottom: none; }
+.budget-table tr:nth-child(even) td { background: #FAFAFA; }
+.budget-table .total-row td {
+  background: var(--teal) !important;
+  color: var(--white);
+  font-weight: 600;
+  font-size: .95rem;
+}
+.budget-table .cat-row td { background: #F1F5F9 !important; font-weight: 600; color: var(--navy); font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; }
+.budget-val { font-family: 'DM Mono', monospace; color: var(--navy); font-weight: 600; }
+.budget-note { color: var(--muted); font-size: .82rem; }
+.budget-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.bsum-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.2rem;
+  text-align: center;
+}
+.bsum-label { font-size: .78rem; color: var(--muted); margin-bottom: .4rem; }
+.bsum-val   { font-size: 1.6rem; font-weight: 700; font-family: 'Playfair Display', serif; color: var(--navy); }
+.bsum-note  { font-size: .75rem; color: var(--muted); margin-top: .2rem; }
+.bsum-card.highlight { background: var(--teal); border-color: var(--teal); }
+.bsum-card.highlight .bsum-label,
+.bsum-card.highlight .bsum-val,
+.bsum-card.highlight .bsum-note { color: var(--white); }
+
+/* ── ALERTS ── */
+.alert {
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: .88rem;
+  line-height: 1.65;
+  display: flex;
+  gap: .8rem;
+  align-items: flex-start;
+}
+.alert-icon { flex-shrink: 0; font-size: 1.1rem; margin-top: 1px; }
+.alert.tip    { background: var(--tealLt);  color: #0F766E; }
+.alert.warn   { background: var(--amberLt); color: #92400E; }
+.alert.danger { background: var(--redLt);   color: #991B1B; }
+
+/* ── COMPARISON TABLE (Urbano vs Urbanizável) ── */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media(max-width:640px){ .compare-grid { grid-template-columns: 1fr; } }
+.compare-col {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.compare-head {
+  padding: 1.2rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+.compare-body { padding: 1.2rem 1.4rem; }
+.compare-row {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .88rem;
+  color: var(--mid);
+  line-height: 1.5;
+}
+.compare-row:last-child { border-bottom: none; }
+.compare-row-icon { flex-shrink: 0; font-size: .9rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.4);
+  text-align: center;
+  padding: 2.5rem;
+  font-size: .82rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+footer strong { color: var(--teal); }
+
+/* ── UTILS ── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 2.5rem 0;
+}
+.sub-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 2.5rem 0 1.2rem;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .55s, transform .55s;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+@media(max-width:768px) {
+  .hero { padding: 5rem 1.5rem 3rem; }
+  .section { padding: 3rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-flag">🇵🇹</div>
+  <p class="hero-eyebrow">Повний гід · Португалія 2025–2026</p>
+  <h1>Земля та<br><em>капсульний будинок</em><br>в Португалії</h1>
+  <p class="hero-sub">Від першого перегляду ділянки до Alvará de Utilização — всі кроки, документи, команда та бюджет для резидентів Португалії.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Solo Urbano</span>
+    <span class="hero-tag">PDM · RAN · REN</span>
+    <span class="hero-tag">Comunicação Prévia</span>
+    <span class="hero-tag">Prefab / Капсула</span>
+    <span class="hero-tag">Комунікації</span>
+    <span class="hero-tag">€80k – €165k</span>
+  </div>
+  <div class="scroll-hint">гортати</div>
+</section>
+
+<!-- ═══ NAV ═══ -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('types')">Типи землі</button>
+    <button class="nav-btn" onclick="showSection('glossary')">Глосарій</button>
+    <button class="nav-btn" onclick="showSection('search')">Пошук ділянки</button>
+    <button class="nav-btn" onclick="showSection('check')">Перевірка статусу</button>
+    <button class="nav-btn" onclick="showSection('build-urbano')">Будівництво Urbano</button>
+    <button class="nav-btn" onclick="showSection('build-urbanizavel')">Urbanizável</button>
+    <button class="nav-btn" onclick="showSection('permits')">Дозволи</button>
+    <button class="nav-btn" onclick="showSection('utilities')">Комунікації</button>
+    <button class="nav-btn" onclick="showSection('team')">Команда</button>
+    <button class="nav-btn" onclick="showSection('budget')">Бюджет</button>
+  </div>
+</nav>
+
+<!-- ═══ SECTION 1: ТИПИ ЗЕМЛІ ═══ -->
+<div id="types" class="section active">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Типи земельних ділянок</h2>
+  </div>
+
+  <div class="land-grid reveal">
+    <div class="land-card">
+      <div class="land-header" style="background:#DCFCE7">
+        <div class="land-icon" style="background:#16A34A20">🏙️</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#14532D">Solo Urbano</div>
+          <div style="font-size:.85rem;color:#16A34A">Міська земля</div>
+        </div>
+      </div>
+      <div class="land-card-body">
+        <span class="land-badge" style="background:#DCFCE7;color:#14532D">✅ Будувати можна</span>
+        <p class="land-desc">Включена в міську зону PDM. Дозвіл на будівництво через стандартну процедуру (Comunicação Prévia або Licença de Construção).</p>
+        <ul class="land-list">
+          <li><strong>Urbano edificado</strong> — вже забудована ділянка</li>
+          <li><strong>Urbano não edificado</strong> — вільна під забудову</li>
+          <li><strong>Solo de urbanização programada</strong> — запланована</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="land-card">
+      <div class="land-header" style="background:#FEF3C7">
+        <div class="land-icon" style="background:#D9770620">🔨</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#78350F">Solo Urbanizável</div>
+          <div style="font-size:.85rem;color:#D97706">Земля під урбанізацію</div>
+        </div>
+      </div>
+      <div class="land-card-body">
+        <span class="land-badge" style="background:#FEF3C7;color:#78350F">⚠️ Потрібен PP/PU</span>
+        <p class="land-desc">За межами міської зони, але PDM передбачає урбанізацію. Потрібен Plano de Pormenor або договір урбанізації. Процес: 1–5+ років.</p>
+        <ul class="land-list">
+          <li>Комунікації можуть бути відсутні повністю</li>
+          <li>Власник може нести витрати на інфраструктуру</li>
+          <li>Без PP/PU — порочне коло дозволів</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="land-card">
+      <div class="land-header" style="background:#FEE2E2">
+        <div class="land-icon" style="background:#DC262620">🌾</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#7F1D1D">Solo Rústico</div>
+          <div style="font-size:.85rem;color:#DC2626">Сільська земля</div>
+        </div>
+      </div>
+      <div class="land-card-body">
+        <span class="land-badge" style="background:#FEE2E2;color:#7F1D1D">🚫 Будівництво заборонено</span>
+        <p class="land-desc">Поза міськими зонами. Будівництво житла заборонене або суворо обмежене. Підкатегорії: Agrícola, Florestal, sem uso definido.</p>
+        <ul class="land-list">
+          <li><strong>RAN</strong> — захист с/г угідь (DGADR)</li>
+          <li><strong>REN</strong> — екологічна охоронна зона (APA)</li>
+          <li>Виняток: існуючі будівлі, агротуризм</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert tip reveal">
+    <span class="alert-icon">💡</span>
+    <span>Для капсульного будинку з метою постійного проживання — тільки <strong>Solo Urbano não edificado</strong>. Це єдиний безпечний варіант без багаторічних бюрократичних процедур.</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: ГЛОСАРІЙ ═══ -->
+<div id="glossary" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Глосарій ключових документів</h2>
+  </div>
+  <div class="glossary-grid reveal">
+    <div class="glos-item">
+      <div class="glos-term">NIF — Número de Identificação Fiscal <span class="glos-badge">У вас є ✓</span></div>
+      <div class="glos-def">Португальський податковий номер. Обов'язковий для будь-якої угоди з нерухомістю. Без NIF жодна операція неможлива.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Caderneta Predial</div>
+      <div class="glos-def">Технічно-фіскальний паспорт ділянки з Finanças. Показує площу, категорію, кадастрову вартість (VPT) та тип землі. Отримується безкоштовно на portaldasfinancas.gov.pt.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Certidão de Teor (Certidão Predial)</div>
+      <div class="glos-def">Виписка з земельного кадастру. Показує власника, обтяження, іпотеки, арешти, сервітути. Дійсна 6 місяців. Вартість ~€15–20 на predial.mj.pt.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">PDM — Plano Diretor Municipal</div>
+      <div class="glos-def">Генеральний план муніципалітету. Визначає зони забудови, щільність, висотність. Є на сайті кожної Câmara Municipal. Перший документ для перевірки.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">PIP — Pedido de Informação Prévia</div>
+      <div class="glos-def">Офіційний запит до Câmara про умови будівництва на конкретній ділянці. Відповідь юридично обов'язкова для муніципалітету. Вартість €100–500, термін 20–45 днів.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">CPCV — Contrato Promessa de Compra e Venda</div>
+      <div class="glos-def">Попередній договір купівлі-продажу. Завдаток (sinal) 10–20%. Якщо покупець відмовляється — втрачає завдаток. Якщо продавець — повертає подвійну суму.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Escritura Pública</div>
+      <div class="glos-def">Нотаріальний договір — фінальний акт передачі власності. Підписується у нотаріуса (Cartório Notarial). Без Escritura власність юридично не переходить.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Comunicação Prévia</div>
+      <div class="glos-def">Спрощена процедура замість ліцензії для простих об'єктів. Подається за 20 робочих днів до початку. Мовчання Câmara = мовчазна згода.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Licença de Construção</div>
+      <div class="glos-def">Повний дозвіл на будівництво від Câmara Municipal. Для складніших проектів. Після схвалення видається Alvará de Construção.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Alvará de Utilização <span class="glos-badge">Фінальний</span></div>
+      <div class="glos-def">Дозвіл на проживання. Видається після завершення будівництва та інспекції (vistoria). Без нього будинок юридично непридатний для проживання.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">RAN / REN</div>
+      <div class="glos-def">RAN — Reserva Agrícola Nacional (захист угідь, DGADR). REN — Reserva Ecológica Nacional (прибережні, схилові, заплавні зони, APA). Будівництво заборонено.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">IMT — Imposto Municipal sobre Transmissões</div>
+      <div class="glos-def">Податок при купівлі: земля під забудову 6.5%, сільська 5% від ціни. Сплачується покупцем до підписання Escritura. Плюс Imposto do Selo 0.8%.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">IMI — Imposto Municipal sobre Imóveis</div>
+      <div class="glos-def">Щорічний майновий податок. Для будинків 0.3–0.45%, для землі 0.8% від VPT (кадастрової вартості). Сплачується власником щорічно.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Telas Finais</div>
+      <div class="glos-def">As-built креслення — фактичний стан будівлі після завершення. Готує архітектор і подає разом із заявою на Alvará de Utilização.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Registo Predial</div>
+      <div class="glos-def">Реєстрація права власності в Conservatória do Registo Predial. Обов'язкова після Escritura. Без неї ви не є офіційним власником в очах третіх осіб.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: ПОШУК ═══ -->
+<div id="search" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Поетапний флоу пошуку ділянки</h2>
+  </div>
+  <div class="flow-grid reveal">
+    <div class="flow-item">
+      <div class="flow-num">1</div>
+      <div>
+        <div class="flow-title">Визначення параметрів</div>
+        <div class="flow-sub">Регіон, мінімальна площа (від 1000 м²), бюджет, відстань від міста, рельєф, орієнтація.</div>
+        <span class="flow-meta">1–2 тижні</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">2</div>
+      <div>
+        <div class="flow-title">Пошук на платформах</div>
+        <div class="flow-sub">Idealista.pt, Imovirtual.com, Supercasa.pt, Casa.sapo.pt. Фільтр: «Terreno urbano» або «Terreno para construção».</div>
+        <span class="flow-meta">2–6 тижнів</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">3</div>
+      <div>
+        <div class="flow-title">Онлайн-перевірка</div>
+        <div class="flow-sub">Отримайте artigo matricial, перевірте зону в PDM муніципалітету, RAN на sniturb.dgadr.gov.pt.</div>
+        <span class="flow-meta">1–3 дні на лот</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">4</div>
+      <div>
+        <div class="flow-title">Виїзд на місце</div>
+        <div class="flow-sub">Огляд рельєфу, доступу, сусідів, зв'язку. Оцініть відстань до найближчого стовпа/труби.</div>
+        <span class="flow-meta">1 день</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num" style="background:#D97706">5</div>
+      <div>
+        <div class="flow-title">PIP — запит до Câmara</div>
+        <div class="flow-sub">Pedido de Informação Prévia — юридично обов'язкова відповідь про умови будівництва. Найважливіший крок перед купівлею.</div>
+        <span class="flow-meta">€100–500 · 20–45 днів</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">6</div>
+      <div>
+        <div class="flow-title">Адвокат — due diligence</div>
+        <div class="flow-sub">Certidão de Teor, Caderneta Predial, відсутність боргів IMI, судових спорів, сервітутів.</div>
+        <span class="flow-meta">€500–1500 · 5–10 днів</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">7</div>
+      <div>
+        <div class="flow-title">Переговори + CPCV</div>
+        <div class="flow-sub">Узгодження ціни. Підписання попереднього договору з нотаріальним засвідченням. Завдаток 10–20%.</div>
+        <span class="flow-meta">1–2 тижні</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">8</div>
+      <div>
+        <div class="flow-title">Оплата IMT + Imposto do Selo</div>
+        <div class="flow-sub">Сплатити через Finanças або банк до дня Escritura. Без квитанцій нотаріус не підпише договір.</div>
+        <span class="flow-meta">IMT 6.5% + Selo 0.8%</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num" style="background:var(--teal)">9</div>
+      <div>
+        <div class="flow-title">Escritura + Registo</div>
+        <div class="flow-sub">Підписання у нотаріуса. Одразу — реєстрація в Conservatória. Оновлення Caderneta у Finanças.</div>
+        <span class="flow-meta">1 день + 5–15 днів реєстрація</span>
+      </div>
+    </div>
+  </div>
+  <div class="alert warn reveal">
+    <span class="alert-icon">⚠️</span>
+    <span>Якщо продавець не може надати Caderneta Predial та Certidão de Teor — не підписуйте нічого. Це червоний прапор можливих проблем з правом власності або боргами.</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: ПЕРЕВІРКА ═══ -->
+<div id="check" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Алгоритм перевірки статусу ділянки</h2>
+  </div>
+  <div class="check-grid reveal">
+    <div class="check-item">
+      <div class="check-num">1</div>
+      <div>
+        <div class="check-label">Caderneta Predial</div>
+        <div class="check-where">portaldasfinancas.gov.pt</div>
+        <div class="check-what">Поле «Afetação»: Urbana чи Rústica. Площа, VPT, тип землі.</div>
+        <div class="check-cost">Безкоштовно (для власника)</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-num">2</div>
+      <div>
+        <div class="check-label">Certidão de Teor</div>
+        <div class="check-where">predial.mj.pt</div>
+        <div class="check-what">Власник, іпотеки, арешти (penhoras), сервітути, площа. Дійсна 6 місяців.</div>
+        <div class="check-cost">€15–20</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-num">3</div>
+      <div>
+        <div class="check-label">Перевірка PDM</div>
+        <div class="check-where">Сайт Câmara Municipal → Urbanismo</div>
+        <div class="check-what">Клас землі, індекси забудови, висотність, відступи від меж.</div>
+        <div class="check-cost">Безкоштовно</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-num">4</div>
+      <div>
+        <div class="check-label">RAN — DGADR</div>
+        <div class="check-where">sniturb.dgadr.gov.pt</div>
+        <div class="check-what">Ділянка в RAN? → будівництво заборонено. Перевірте перед будь-якою угодою.</div>
+        <div class="check-cost">Безкоштовно</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-num">5</div>
+      <div>
+        <div class="check-label">REN — APA</div>
+        <div class="check-where">sniamb.apambiente.pt</div>
+        <div class="check-what">Екозони: прибережні, схили >30°, заплавини річок. Будівництво заборонено.</div>
+        <div class="check-cost">Безкоштовно</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-num">6</div>
+      <div>
+        <div class="check-label">Natura 2000 / ICNF</div>
+        <div class="check-where">icnf.pt</div>
+        <div class="check-what">Захищені зони SIC/ZPE. Якщо ділянка потрапляє — консультація з ICNF обов'язкова.</div>
+        <div class="check-cost">Безкоштовно</div>
+      </div>
+    </div>
+    <div class="check-item">
+      <div class="check-num">7</div>
+      <div>
+        <div class="check-label">Борги по IMI</div>
+        <div class="check-where">Portal das Finanças</div>
+        <div class="check-what">Certidão de Não Dívida. Увага: борги по IMI переходять до нового власника.</div>
+        <div class="check-cost">Безкоштовно</div>
+      </div>
+    </div>
+    <div class="check-item" style="border-left:3px solid var(--amber)">
+      <div class="check-num" style="background:var(--amber)">8</div>
+      <div>
+        <div class="check-label">PIP — Informação Prévia</div>
+        <div class="check-where">Câmara Municipal (особисто або online)</div>
+        <div class="check-what">Офіційна відповідь Câmara про можливість та умови будівництва. Юридично обов'язкова.</div>
+        <div class="check-cost" style="color:var(--amber)">€100–500 · 20–45 р.д.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 5: БУДІВНИЦТВО URBANO ═══ -->
+<div id="build-urbano" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Флоу будівництва на Solo Urbano</h2>
+  </div>
+  <div class="build-grid reveal">
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">1</div><div class="build-title">Архітектор</div></div>
+      <div class="build-sub">Член Ordem dos Arquitetos. Без підпису архітектора Câmara не прийме проект.</div>
+      <div class="build-dur">2–4 тижні пошуку</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">2</div><div class="build-title">Геодезична зйомка</div></div>
+      <div class="build-sub">Topógrafo вимірює межі, рельєф, висоти. Обов'язкова основа для проекту.</div>
+      <div class="build-dur">€400–1500 · 3–7 днів</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">3</div><div class="build-title">Архітектурний проект</div></div>
+      <div class="build-sub">Плани, фасади, розрізи, Memória Descritiva. Враховує PDM: відступи, висоту, індекси.</div>
+      <div class="build-dur">4–12 тижнів</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">4</div><div class="build-title">Спец. проекти</div></div>
+      <div class="build-sub">Структурний (Eng. Civil), REH термо, акустика, ITED, газ, резидки.</div>
+      <div class="build-dur">3–8 тижнів</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">5</div><div class="build-title">Подача заявки</div></div>
+      <div class="build-sub">Comunicação Prévia або Licença de Construção через балкон Câmara Municipal.</div>
+      <div class="build-dur">1 день подачі</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">6</div><div class="build-title">Розгляд та затвердження</div></div>
+      <div class="build-sub">Comunicação Prévia: 20 р.д. (мовчання = згода). Licença: 45–90 р.д.</div>
+      <div class="build-dur">20–90 робочих днів</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">7</div><div class="build-title">Оплата taxas</div></div>
+      <div class="build-sub">Câmara виставляє рахунок за дозвіл. Розраховується за площею та типом робіт.</div>
+      <div class="build-dur">€500–8000</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">8</div><div class="build-title">Alvará de Construção</div></div>
+      <div class="build-sub">Призначення Diretor de Obra та Fiscalização. Повідомлення Câmara про початок.</div>
+      <div class="build-dur">1 тиждень</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">9</div><div class="build-title">Будівництво</div></div>
+      <div class="build-sub">Ведення Livro de Obra — обов'язково. Câmara може приходити з перевірками.</div>
+      <div class="build-dur">6–18 місяців</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">10</div><div class="build-title">Telas Finais</div></div>
+      <div class="build-sub">As-built креслення + Ficha Técnica de Habitação. Подаються до Câmara Municipal.</div>
+      <div class="build-dur">2–4 тижні</div>
+    </div>
+    <div class="build-item">
+      <div class="build-top"><div class="build-num">11</div><div class="build-title">Vistoria Câmara</div></div>
+      <div class="build-sub">Інспекція відповідності будівлі проекту. Можуть бути зауваження — усуваються.</div>
+      <div class="build-dur">20–60 днів</div>
+    </div>
+    <div class="build-item final">
+      <div class="build-top"><div class="build-num">12</div><div class="build-title">Alvará de Utilização</div></div>
+      <div class="build-sub">Дозвіл на проживання ✓ Реєстрація в Conservatória. Підключення EDP, água, gás.</div>
+      <div class="build-dur">Ваш ключ!</div>
+    </div>
+  </div>
+  <div class="alert tip reveal">
+    <span class="alert-icon">💡</span>
+    <span><strong>Comunicação Prévia</strong> — найшвидший шлях для будинків до ~500 м² на Solo Urbano. Якщо Câmara не відповіла за 20 робочих днів — дозвіл вважається виданим автоматично.</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 6: URBANIZÁVEL ═══ -->
+<div id="build-urbanizavel" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Будівництво на Urbanizável</h2>
+  </div>
+
+  <div class="alert danger reveal">
+    <span class="alert-icon">🚨</span>
+    <span>Для постійного проживання <strong>не рекомендуємо</strong> купувати Urbanizável без наявного PP/PU. Ризик застрягти на роки. Краще Solo Urbano одразу.</span>
+  </div>
+
+  <div class="compare-grid reveal">
+    <div class="compare-col">
+      <div class="compare-head" style="background:#16A34A">✅ Сценарій А: мережі поблизу</div>
+      <div class="compare-body">
+        <div class="compare-row"><span class="compare-row-icon">→</span>Мережі існують у радіусі 50–100 м від ділянки</div>
+        <div class="compare-row"><span class="compare-row-icon">→</span>Підключення можливе після отримання Alvará de Construção</div>
+        <div class="compare-row"><span class="compare-row-icon">→</span>Прокладка від точки підключення до ділянки за вашим кошторисом</div>
+        <div class="compare-row"><span class="compare-row-icon">→</span>Вартість: €3,000–18,000 залежно від відстані</div>
+        <div class="compare-row"><span class="compare-row-icon">→</span><strong>Найкращий варіант серед Urbanizável</strong></div>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-head" style="background:#DC2626">⚠️ Сценарій Б: ізольована, без мереж</div>
+      <div class="compare-body">
+        <div class="compare-row"><span class="compare-row-icon">→</span>Потрібно чекати муніципальної урбанізації (роки)</div>
+        <div class="compare-row"><span class="compare-row-icon">→</span>Або вкладати власні кошти в прокладку мереж</div>
+        <div class="compare-row"><span class="compare-row-icon">→</span>Extensão eletricidade: €50–150/м підземного кабелю</div>
+        <div class="compare-row"><span class="compare-row-icon">→</span>200 м кабелю = €10,000–30,000 тільки за прокладку</div>
+        <div class="compare-row"><span class="compare-row-icon">→</span><strong>Рекомендація: автономна система</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-title reveal">Флоу для Urbanizável з наявним PP/PU</div>
+  <div class="flow-grid reveal">
+    <div class="flow-item">
+      <div class="flow-num">1</div>
+      <div>
+        <div class="flow-title">Перевірка PP/PU</div>
+        <div class="flow-sub">Якщо для зони затверджений Plano de Pormenor — переходьте до кроку 5. Якщо ні — розгляньте іншу ділянку.</div>
+        <span class="flow-meta">Запит в Câmara · 1–2 тижні</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">2</div>
+      <div>
+        <div class="flow-title">Ініціювання PP/PU (якщо немає)</div>
+        <div class="flow-sub">Власник або Câmara ініціює план. Розробка → публічне обговорення → затвердження. Дуже тривало.</div>
+        <span class="flow-meta">2–5 років · €10,000–50,000+</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">3</div>
+      <div>
+        <div class="flow-title">Договір урбанізації</div>
+        <div class="flow-sub">Угода з Câmara щодо інфраструктури (дороги, каналізація, тротуари) або грошового еквіваленту.</div>
+        <span class="flow-meta">3–12 місяців</span>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">4</div>
+      <div>
+        <div class="flow-title">Loteamento (якщо потрібно)</div>
+        <div class="flow-sub">Pedido de Loteamento — офіційне розбиття на ділянки з призначенням для забудови.</div>
+        <span class="flow-meta">6–18 місяців</span>
+      </div>
+    </div>
+    <div class="flow-item" style="border-color:var(--teal)">
+      <div class="flow-num" style="background:var(--teal)">5</div>
+      <div>
+        <div class="flow-title">Після урбанізації → Urbano флоу</div>
+        <div class="flow-sub">Коли ділянка набула статусу Urbano в PDM та Caderneta Predial — далі стандартний процес 12 кроків.</div>
+        <span class="flow-meta">Дивіться розділ 05</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 7: ДОЗВОЛИ ═══ -->
+<div id="permits" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Всі дозволи для будівництва</h2>
+  </div>
+  <div class="permits-grid reveal">
+    <div class="permit-card">
+      <div class="permit-name">Pedido de Informação Prévia (PIP)</div>
+      <div class="permit-type" style="color:#0369A1">Попередній · не є дозволом</div>
+      <div class="permit-desc">Юридично зобов'язує Câmara. Визначає: чи можна будувати, параметри (висота, площа, відступи). Подається до купівлі ділянки.</div>
+      <div class="permit-where">Câmara Municipal (balcão / online)</div>
+      <div class="permit-cost">€100–500 · 20–45 р.д. · Дійсний 1 рік</div>
+    </div>
+    <div class="permit-card" style="border-left-color:#16A34A">
+      <div class="permit-name">Comunicação Prévia</div>
+      <div class="permit-type" style="color:#16A34A">Спрощена процедура ✅ Найшвидше</div>
+      <div class="permit-desc">Для нових будинків на Solo Urbano в зонах з PP/PU. Подається за 20 р.д. до початку. Мовчання Câmara = дозвіл.</div>
+      <div class="permit-where">Portal do Licenciamento / Câmara</div>
+      <div class="permit-cost">Taxa €500–3,000 · 20 р.д.</div>
+    </div>
+    <div class="permit-card" style="border-left-color:#D97706">
+      <div class="permit-name">Licença de Construção</div>
+      <div class="permit-type" style="color:#D97706">Стандартна ліцензія</div>
+      <div class="permit-desc">Для складніших проектів або коли Câmara вимагає. Повний розгляд. Після схвалення — Alvará de Construção.</div>
+      <div class="permit-where">Câmara Municipal</div>
+      <div class="permit-cost">Taxa €1,000–8,000 · 45–90 р.д.</div>
+    </div>
+    <div class="permit-card" style="border-left-color:#7C3AED">
+      <div class="permit-name">Licença de Urbanização</div>
+      <div class="permit-type" style="color:#7C3AED">Для loteamento</div>
+      <div class="permit-desc">Для розбиття землі на лоти та облаштування інфраструктури. Потрібна якщо ділите ділянку або будуєте цілий квартал.</div>
+      <div class="permit-where">Câmara Municipal</div>
+      <div class="permit-cost">€2,000–15,000+</div>
+    </div>
+    <div class="permit-card" style="border-left-color:var(--teal)">
+      <div class="permit-name">Alvará de Utilização</div>
+      <div class="permit-type" style="color:var(--teal)">Фінальний дозвіл ✅</div>
+      <div class="permit-desc">Дозвіл на використання будівлі. Після завершення будівництва та vistoria. Для проживання — обов'язковий. Вказує дозволене використання.</div>
+      <div class="permit-where">Câmara Municipal</div>
+      <div class="permit-cost">€200–800 · 20–45 р.д.</div>
+    </div>
+    <div class="permit-card" style="border-left-color:#DC2626">
+      <div class="permit-name">Autorização Especial (RAN/REN)</div>
+      <div class="permit-type" style="color:#DC2626">Охоронні зони — складно</div>
+      <div class="permit-desc">Для будівництва в захищених зонах — спеціальна авторизація від DGADR (RAN) або APA (REN). Часто відмовляють.</div>
+      <div class="permit-where">DGADR / APA</div>
+      <div class="permit-cost">€200–2,000 · 60–180 днів</div>
+    </div>
+    <div class="permit-card">
+      <div class="permit-name">Parecer da ARH</div>
+      <div class="permit-type" style="color:var(--mid)">Водні ресурси</div>
+      <div class="permit-desc">Для ділянок поблизу водойм або в зонах захисту водних ресурсів. Обов'язковий до подачі основного проекту.</div>
+      <div class="permit-where">ARH регіону (APA)</div>
+      <div class="permit-cost">€50–500 · 30–60 р.д.</div>
+    </div>
+    <div class="permit-card">
+      <div class="permit-name">Parecer ICNF</div>
+      <div class="permit-type" style="color:var(--mid)">Природоохоронна зона</div>
+      <div class="permit-desc">Для ділянок в Natura 2000, SIC, ZPE або поблизу лісів. Висновок про вплив на середовище.</div>
+      <div class="permit-where">icnf.pt</div>
+      <div class="permit-cost">€50–300 · 30–60 р.д.</div>
+    </div>
+    <div class="permit-card">
+      <div class="permit-name">Parecer DGPC</div>
+      <div class="permit-type" style="color:var(--mid)">Культурна спадщина</div>
+      <div class="permit-desc">Якщо ділянка в зоні захисту архітектурної пам'ятки. Висновок Дирекції охорони культурної спадщини.</div>
+      <div class="permit-where">dgpc.gov.pt</div>
+      <div class="permit-cost">€100–500 · 45–90 р.д.</div>
+    </div>
+    <div class="permit-card">
+      <div class="permit-name">Licença de Utilização Especial</div>
+      <div class="permit-type" style="color:var(--mid)">Туристичне використання</div>
+      <div class="permit-desc">Якщо будинок планується для оренди (Alojamento Local, Turismo Rural) — реєстрація в Turismo de Portugal та Câmara.</div>
+      <div class="permit-where">turismodeportugal.pt</div>
+      <div class="permit-cost">€200–1,000</div>
+    </div>
+  </div>
+  <div class="alert tip reveal">
+    <span class="alert-icon">💡</span>
+    <span>Для типового капсульного будинку на Solo Urbano — <strong>PIP → Comunicação Prévia → Alvará de Utilização</strong>. Три ключових документи. Решта — тільки за потреби.</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 8: КОМУНІКАЦІЇ ═══ -->
+<div id="utilities" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">08</span>
+    <h2 class="section-title">Комунікації: підключення та автономія</h2>
+  </div>
+
+  <div class="alert warn reveal">
+    <span class="alert-icon">📏</span>
+    <span><strong>Правило 100 метрів:</strong> якщо найближча точка підключення до мереж далі ніж 100 м — автономна система (сонце + свердловина + септик) майже завжди виходить дешевше і простіше.</span>
+  </div>
+
+  <div class="utils-grid reveal">
+    <!-- ELECTRICITY -->
+    <div class="util-card">
+      <div class="util-header" style="background:#1D4ED8">
+        <span class="util-icon">⚡</span>
+        <div>
+          <div class="util-title">Електрика</div>
+          <div style="font-size:.8rem;opacity:.8">E-Redes · e-redes.pt · 800 506 506</div>
+        </div>
+      </div>
+      <div class="util-body">
+        <div class="util-where">E-Redes (монополія на мережу) → оберіть комерційного оператора</div>
+        <div class="util-row"><span class="util-row-label">Підключення (до 30м)</span><span class="util-row-val" style="color:#1D4ED8">€500–2,000</span></div>
+        <div class="util-row"><span class="util-row-label">Підключення (30–100м)</span><span class="util-row-val" style="color:#1D4ED8">€2,000–8,000</span></div>
+        <div class="util-row"><span class="util-row-label">Extensão (&gt;100м)</span><span class="util-row-val" style="color:#DC2626">€8,000–40,000+</span></div>
+        <div class="util-row"><span class="util-row-label">Автономія (сонячна)</span><span class="util-row-val" style="color:#16A34A">€6,500–16,000</span></div>
+        <div class="util-auto">🌞 Реєстрація autoconsumo в DGEG через portal.dgeg.gov.pt. Субсидії доступні.</div>
+      </div>
+    </div>
+
+    <!-- WATER -->
+    <div class="util-card">
+      <div class="util-header" style="background:#0E7490">
+        <span class="util-icon">💧</span>
+        <div>
+          <div class="util-title">Вода</div>
+          <div style="font-size:.8rem;opacity:.8">Câmara Municipal / APA (свердловина)</div>
+        </div>
+      </div>
+      <div class="util-body">
+        <div class="util-where">Муніципальна компанія águas або APA/SNIRH для furo</div>
+        <div class="util-row"><span class="util-row-label">Муніц. мережа (близько)</span><span class="util-row-val" style="color:#0E7490">€1,500–4,000</span></div>
+        <div class="util-row"><span class="util-row-label">Муніц. мережа (далеко)</span><span class="util-row-val" style="color:#DC2626">€4,000–15,000</span></div>
+        <div class="util-row"><span class="util-row-label">Свердловина (furo) під ключ</span><span class="util-row-val" style="color:#16A34A">€3,000–8,200</span></div>
+        <div class="util-row"><span class="util-row-label">Аналіз + очищення</span><span class="util-row-val" style="color:#0E7490">€300–2,000</span></div>
+        <div class="util-auto">🕳️ Ліцензія APA на свердловину: snirh.apambiente.pt. В Алентежу — завжди робіть гідрогеологічний аналіз перед купівлею.</div>
+      </div>
+    </div>
+
+    <!-- SEWAGE + TELECOM -->
+    <div class="util-card">
+      <div class="util-header" style="background:#6D28D9">
+        <span class="util-icon">♻️</span>
+        <div>
+          <div class="util-title">Каналізація + Зв'язок</div>
+          <div style="font-size:.8rem;opacity:.8">Câmara · Starlink · MEO · NOS</div>
+        </div>
+      </div>
+      <div class="util-body">
+        <div class="util-where">Câmara для каналізації / Starlink для ізольованих місць</div>
+        <div class="util-row"><span class="util-row-label">Муніц. каналізація</span><span class="util-row-val" style="color:#6D28D9">€1,000–5,000</span></div>
+        <div class="util-row"><span class="util-row-label">Септик + дренаж (fossa)</span><span class="util-row-val" style="color:#16A34A">€2,000–4,800</span></div>
+        <div class="util-row"><span class="util-row-label">ETAR privada (міні-станція)</span><span class="util-row-val" style="color:#6D28D9">€4,000–10,000</span></div>
+        <div class="util-row"><span class="util-row-label">Starlink обладнання</span><span class="util-row-val" style="color:#6D28D9">€349 + €50/міс</span></div>
+        <div class="util-row"><span class="util-row-label">Fibra ótica (міс.)</span><span class="util-row-val" style="color:#6D28D9">€25–50/міс</span></div>
+        <div class="util-auto">📡 Starlink — найкраще рішення для ізольованих ділянок. Встановлюється самостійно за 30 хвилин.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-title reveal">Повна автономна система — найкраще для Urbanizável та ізольованого Urbano</div>
+  <div class="budget-summary reveal">
+    <div class="bsum-card"><div class="bsum-label">Сонячна система (4–8 панелей + батарея)</div><div class="bsum-val">€6,500–16k</div><div class="bsum-note">Реєстрація DGEG обов'язкова</div></div>
+    <div class="bsum-card"><div class="bsum-label">Свердловина + насос + фільтр</div><div class="bsum-val">€3,000–8,200</div><div class="bsum-note">Ліцензія APA до буріння</div></div>
+    <div class="bsum-card"><div class="bsum-label">Септик + дренажне поле</div><div class="bsum-val">€2,000–4,800</div><div class="bsum-note">Ensaio de permeabilidade</div></div>
+    <div class="bsum-card highlight"><div class="bsum-label">Повна автономна система</div><div class="bsum-val">€11,500–29k</div><div class="bsum-note">vs €20k–60k+ для далеких мереж</div></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 9: КОМАНДА ═══ -->
+<div id="team" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">09</span>
+    <h2 class="section-title">Команда та їх роль</h2>
+  </div>
+  <div class="team-grid reveal">
+    <div class="team-card" style="border-left-color:var(--teal)">
+      <div class="team-role">Advogado — Адвокат</div>
+      <span class="team-when">З першого дня</span>
+      <div class="team-what">Перевірка юридичної чистоти ділянки, підготовка CPCV, супровід Escritura, консультація щодо податків. Шукайте спеціаліста з досвідом роботи з іноземцями.</div>
+      <div class="team-cost">€1,500–5,000</div>
+    </div>
+    <div class="team-card" style="border-left-color:var(--purple)">
+      <div class="team-role">Arquiteto — Архітектор</div>
+      <span class="team-when">Обов'язково</span>
+      <div class="team-what">Член Ordem dos Arquitetos. Розробляє проект, підписує всі документи для Câmara, є Diretor de Obra. Обирайте з досвідом prefab/модульних проектів.</div>
+      <div class="team-cost">€5,000–25,000</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">Topógrafo — Геодезист</div>
+      <span class="team-when">Перед проектом</span>
+      <div class="team-what">Геодезична зйомка ділянки. Обов'язкова основа для архітектурного проекту. Визначає межі, рельєф та висоти.</div>
+      <div class="team-cost">€400–1,500</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">Engenheiro Civil — Конструктор</div>
+      <span class="team-when">Для ліцензії</span>
+      <div class="team-what">Структурний проект (Projeto de Estruturas). Обов'язковий для отримання ліцензії на будівництво.</div>
+      <div class="team-cost">€1,500–5,000</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">Engenheiro de Especialidades</div>
+      <span class="team-when">Паралельно з проектом</span>
+      <div class="team-what">Térmico (REH), Acústica, ITED (зв'язок), Gás. Кожен проект — окремий спеціаліст.</div>
+      <div class="team-cost">€300–2,000 кожен</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">Empreiteiro — Підрядник</div>
+      <span class="team-when">Будівництво</span>
+      <div class="team-what">Будівельна компанія з реєстрацією InCI. Для prefab/капсули — спеціалізований виробник-монтажник. Найбільша стаття бюджету.</div>
+      <div class="team-cost">60–80% загального бюджету</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">Fiscalização — Технагляд</div>
+      <span class="team-when">Під час будівництва</span>
+      <div class="team-what">Незалежний інженер, що контролює якість будівництва на відповідність проекту. Рекомендується для всіх проектів.</div>
+      <div class="team-cost">€2,000–6,000</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">Agente Imobiliário — Агент</div>
+      <span class="team-when">Пошук ділянки</span>
+      <div class="team-what">Ліцензія AMI обов'язкова. Допомагає з пошуком і переговорами. Комісія зазвичай платить продавець.</div>
+      <div class="team-cost">3–5% + ПДВ (платить продавець)</div>
+    </div>
+    <div class="team-card">
+      <div class="team-role">Contabilista — Бухгалтер</div>
+      <span class="team-when">Оптимізація податків</span>
+      <div class="team-what">Оптимізація IMT, IMI, IRS. Важливо якщо плануєте здавати в оренду або оформити підприємницьку діяльність.</div>
+      <div class="team-cost">€500–2,000/рік</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 10: БЮДЖЕТ ═══ -->
+<div id="budget" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">10</span>
+    <h2 class="section-title">Повний бюджет</h2>
+  </div>
+
+  <div class="budget-wrap reveal">
+    <table class="budget-table">
+      <thead>
+        <tr><th>Стаття витрат</th><th style="text-align:center">Мінімум</th><th style="text-align:center">Максимум</th><th>Примітка</th></tr>
+      </thead>
+      <tbody>
+        <tr class="cat-row"><td colspan="4">🏞️ КУПІВЛЯ ДІЛЯНКИ</td></tr>
+        <tr><td>Земля (0.5–1 га, Solo Urbano)</td><td class="budget-val" style="text-align:center">€15,000</td><td class="budget-val" style="text-align:center">€60,000</td><td class="budget-note">Алентежу — дешевше, Алгарв — дорожче</td></tr>
+        <tr><td>IMT (6.5%) + Imposto do Selo (0.8%)</td><td class="budget-val" style="text-align:center">€1,100</td><td class="budget-val" style="text-align:center">€4,620</td><td class="budget-note">Від ціни ділянки, до Escritura</td></tr>
+        <tr><td>Нотаріус (Escritura)</td><td class="budget-val" style="text-align:center">€500</td><td class="budget-val" style="text-align:center">€1,200</td><td class="budget-note">Фіксована шкала</td></tr>
+        <tr><td>Registo Predial</td><td class="budget-val" style="text-align:center">€250</td><td class="budget-val" style="text-align:center">€500</td><td class="budget-note">Conservatória</td></tr>
+        <tr><td>Адвокат (due diligence + Escritura)</td><td class="budget-val" style="text-align:center">€1,500</td><td class="budget-val" style="text-align:center">€5,000</td><td class="budget-note">1–2% або фіксовано</td></tr>
+
+        <tr class="cat-row"><td colspan="4">📐 ПІДГОТОВКА ТА ПРОЕКТУВАННЯ</td></tr>
+        <tr><td>Геодезична зйомка</td><td class="budget-val" style="text-align:center">€400</td><td class="budget-val" style="text-align:center">€1,500</td><td class="budget-note">Topógrafo</td></tr>
+        <tr><td>PIP (Informação Prévia)</td><td class="budget-val" style="text-align:center">€100</td><td class="budget-val" style="text-align:center">€500</td><td class="budget-note">Câmara Municipal</td></tr>
+        <tr><td>Архітектурний проект</td><td class="budget-val" style="text-align:center">€3,000</td><td class="budget-val" style="text-align:center">€15,000</td><td class="budget-note">Arquiteto + Diretor de Obra</td></tr>
+        <tr><td>Спеціалізовані проекти (Estrutural, REH, ITED)</td><td class="budget-val" style="text-align:center">€3,500</td><td class="budget-val" style="text-align:center">€10,000</td><td class="budget-note">Кілька інженерів</td></tr>
+
+        <tr class="cat-row"><td colspan="4">📋 ДОЗВОЛИ ТА ЗБОРИ</td></tr>
+        <tr><td>Taxa Comunicação Prévia / Licença</td><td class="budget-val" style="text-align:center">€500</td><td class="budget-val" style="text-align:center">€8,000</td><td class="budget-note">Câmara Municipal</td></tr>
+        <tr><td>Alvará de Utilização</td><td class="budget-val" style="text-align:center">€200</td><td class="budget-val" style="text-align:center">€800</td><td class="budget-note">Câmara Municipal</td></tr>
+        <tr><td>Taxa de infraestruturas</td><td class="budget-val" style="text-align:center">€1,000</td><td class="budget-val" style="text-align:center">€5,000</td><td class="budget-note">Компенсація за комунікації</td></tr>
+        <tr><td>Registo do prédio urbano (будинок)</td><td class="budget-val" style="text-align:center">€250</td><td class="budget-val" style="text-align:center">€500</td><td class="budget-note">Conservatória</td></tr>
+
+        <tr class="cat-row"><td colspan="4">🏗️ БУДІВНИЦТВО</td></tr>
+        <tr><td>Капсульний / prefab будинок 50–80 м²</td><td class="budget-val" style="text-align:center">€40,000</td><td class="budget-val" style="text-align:center">€90,000</td><td class="budget-note">Виробник + монтаж + фундамент</td></tr>
+        <tr><td>Комунікації (вода, електрика, каналізація)</td><td class="budget-val" style="text-align:center">€5,000</td><td class="budget-val" style="text-align:center">€25,000</td><td class="budget-note">Залежить від відстані до мереж</td></tr>
+        <tr><td>Fiscalização + страхування будівництва</td><td class="budget-val" style="text-align:center">€2,500</td><td class="budget-val" style="text-align:center">€8,000</td><td class="budget-note">Seguro de Construção обов'язковий</td></tr>
+        <tr><td>Огорожа + ворота + доріжка</td><td class="budget-val" style="text-align:center">€2,000</td><td class="budget-val" style="text-align:center">€10,000</td><td class="budget-note">Опціонально</td></tr>
+
+        <tr class="total-row">
+          <td>РАЗОМ</td>
+          <td style="text-align:center">€76,800</td>
+          <td style="text-align:center">€245,620</td>
+          <td>+ резерв 15–20% від кошторису</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="budget-summary reveal">
+    <div class="bsum-card"><div class="bsum-label">Земля + податки + угода</div><div class="bsum-val">€18–72k</div><div class="bsum-note">Залежно від регіону</div></div>
+    <div class="bsum-card"><div class="bsum-label">Проектування + дозволи</div><div class="bsum-val">€9–36k</div><div class="bsum-note">Arquiteto + Câmara</div></div>
+    <div class="bsum-card"><div class="bsum-label">Будівництво + комунікації</div><div class="bsum-val">€50–133k</div><div class="bsum-note">Prefab + все підключення</div></div>
+    <div class="bsum-card highlight"><div class="bsum-label">Реалістичний бюджет</div><div class="bsum-val">€80–165k</div><div class="bsum-note">Типова капсула 60 м² + ділянка</div></div>
+  </div>
+
+  <div class="alert warn reveal">
+    <span class="alert-icon">⚠️</span>
+    <span>Закладайте резерв <strong>15–20% понад кошторис</strong>. В Португалії затримки та непередбачені витрати — норма, особливо з підключенням комунікацій у сільській місцевості.</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub-title reveal">Щорічні витрати після завершення</div>
+  <div class="budget-summary reveal">
+    <div class="bsum-card"><div class="bsum-label">IMI будинок (0.3–0.45% VPT)</div><div class="bsum-val">€150–600</div><div class="bsum-note">Щорічно</div></div>
+    <div class="bsum-card"><div class="bsum-label">IMI земля (0.8% VPT)</div><div class="bsum-val">€50–300</div><div class="bsum-note">Щорічно</div></div>
+    <div class="bsum-card"><div class="bsum-label">Страхування (Multi-Riscos)</div><div class="bsum-val">€200–500</div><div class="bsum-note">Обов'язково</div></div>
+    <div class="bsum-card"><div class="bsum-label">Разом на рік</div><div class="bsum-val">€400–1,400</div><div class="bsum-note">Типовий будинок</div></div>
+  </div>
+</div>
+
+<footer>
+  Гід актуальний на <strong>2025–2026</strong> · Інформація носить ознайомлювальний характер · Для юридичних питань зверніться до ліцензованого Advogado у Португалії
+</footer>
+
+<script>
+  // Section switching
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.sticky-nav').offsetTop, behavior: 'smooth' });
+    // Trigger reveals for newly active section
+    setTimeout(() => observeReveals(), 100);
+  }
+
+  // Reveal on scroll
+  function observeReveals() {
+    const reveals = document.querySelectorAll('.reveal:not(.visible)');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  observeReveals();
+</script>
+</body>
+</html>
