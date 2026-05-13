@@ -382,17 +382,28 @@ body {
 }
 .land-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,.1); }
 .land-header {
-  padding: 1.8rem 1.5rem 1.4rem;
+  padding: 1.4rem 1.5rem 1rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
 }
+.land-card-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: .15rem;
+}
+.land-card-subtitle { font-size: .82rem; }
 .land-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
+  width: 44px; height: 44px;
+  border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   flex-shrink: 0;
+  background: var(--sand);
 }
 .land-card-body { padding: 0 1.5rem 1.5rem; }
 .land-badge {
@@ -430,7 +441,7 @@ body {
   transition: border-color .2s, box-shadow .2s;
   cursor: default;
 }
-.glos-item:hover { border-left-color: var(--navy); box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+.glos-item:hover { border-left-color: var(--teal); box-shadow: 0 4px 20px rgba(0,0,0,.06); }
 .glos-term {
   font-family: 'DM Mono', monospace;
   font-size: .8rem;
@@ -1105,16 +1116,16 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
   </div>
 
   <div class="land-grid reveal">
-    <div class="land-card">
-      <div class="land-header" style="background:#DCFCE7">
-        <div class="land-icon" style="background:#16A34A20">🏙️</div>
+    <div class="land-card" style="border-top:3px solid #16A34A">
+      <div class="land-header">
+        <div class="land-icon">🏙️</div>
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#14532D">Solo Urbano</div>
-          <div style="font-size:.85rem;color:#16A34A">Міська земля</div>
+          <div class="land-card-title">Solo Urbano</div>
+          <div class="land-card-subtitle" style="color:#16A34A">Міська земля</div>
         </div>
       </div>
       <div class="land-card-body">
-        <span class="land-badge" style="background:#DCFCE7;color:#14532D">✅ Будувати можна</span>
+        <span class="land-badge" style="background:#F0FDF4;color:#166534">✅ Будувати можна</span>
         <p class="land-desc">Включена в міську зону PDM. Дозвіл на будівництво через стандартну процедуру (Comunicação Prévia або Licença de Construção).</p>
         <ul class="land-list">
           <li><strong>Urbano edificado</strong> — вже забудована ділянка</li>
@@ -1124,16 +1135,16 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
       </div>
     </div>
 
-    <div class="land-card">
-      <div class="land-header" style="background:#FEF3C7">
-        <div class="land-icon" style="background:#D9770620">🔨</div>
+    <div class="land-card" style="border-top:3px solid #D97706">
+      <div class="land-header">
+        <div class="land-icon">🔨</div>
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#78350F">Solo Urbanizável</div>
-          <div style="font-size:.85rem;color:#D97706">Земля під урбанізацію</div>
+          <div class="land-card-title">Solo Urbanizável</div>
+          <div class="land-card-subtitle" style="color:#D97706">Земля під урбанізацію</div>
         </div>
       </div>
       <div class="land-card-body">
-        <span class="land-badge" style="background:#FEF3C7;color:#78350F">⚠️ Потрібен PP/PU</span>
+        <span class="land-badge" style="background:#FFFBEB;color:#92400E">⚠️ Потрібен PP/PU</span>
         <p class="land-desc">За межами міської зони, але PDM передбачає урбанізацію. Потрібен Plano de Pormenor або договір урбанізації. Процес: 1–5+ років.</p>
         <ul class="land-list">
           <li>Комунікації можуть бути відсутні повністю</li>
@@ -1143,16 +1154,16 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
       </div>
     </div>
 
-    <div class="land-card">
-      <div class="land-header" style="background:#FEE2E2">
-        <div class="land-icon" style="background:#DC262620">🌾</div>
+    <div class="land-card" style="border-top:3px solid #DC2626">
+      <div class="land-header">
+        <div class="land-icon">🌾</div>
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#7F1D1D">Solo Rústico</div>
-          <div style="font-size:.85rem;color:#DC2626">Сільська земля</div>
+          <div class="land-card-title">Solo Rústico</div>
+          <div class="land-card-subtitle" style="color:#DC2626">Сільська земля</div>
         </div>
       </div>
       <div class="land-card-body">
-        <span class="land-badge" style="background:#FEE2E2;color:#7F1D1D">🚫 Будівництво заборонено</span>
+        <span class="land-badge" style="background:#FEF2F2;color:#991B1B">🚫 Будівництво заборонено</span>
         <p class="land-desc">Поза міськими зонами. Будівництво житла заборонене або суворо обмежене. Підкатегорії: Agrícola, Florestal, sem uso definido.</p>
         <ul class="land-list">
           <li><strong>RAN</strong> — захист с/г угідь (DGADR)</li>
@@ -1395,7 +1406,7 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
         <div class="check-cost">Безкоштовно</div>
       </div>
     </div>
-    <div class="check-item" style="border-left:3px solid var(--amber)">
+    <div class="check-item">
       <div class="check-num" style="background:var(--amber)">8</div>
       <div>
         <div class="check-label">PIP — Informação Prévia</div>
@@ -1495,7 +1506,7 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
 
   <div class="compare-grid reveal">
     <div class="compare-col">
-      <div class="compare-head" style="background:#16A34A">✅ Сценарій А: мережі поблизу</div>
+      <div class="compare-head" style="background:#F0FDF4;color:#166534;border-bottom:2px solid #16A34A">✅ Сценарій А: мережі поблизу</div>
       <div class="compare-body">
         <div class="compare-row"><span class="compare-row-icon">→</span>Мережі існують у радіусі 50–100 м від ділянки</div>
         <div class="compare-row"><span class="compare-row-icon">→</span>Підключення можливе після отримання Alvará de Construção</div>
@@ -1505,7 +1516,7 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
       </div>
     </div>
     <div class="compare-col">
-      <div class="compare-head" style="background:#DC2626">⚠️ Сценарій Б: ізольована, без мереж</div>
+      <div class="compare-head" style="background:#FEF2F2;color:#991B1B;border-bottom:2px solid #DC2626">⚠️ Сценарій Б: ізольована, без мереж</div>
       <div class="compare-body">
         <div class="compare-row"><span class="compare-row-icon">→</span>Потрібно чекати муніципальної урбанізації (роки)</div>
         <div class="compare-row"><span class="compare-row-icon">→</span>Або вкладати власні кошти в прокладку мереж</div>
@@ -1575,35 +1586,35 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
       <div class="permit-where">Câmara Municipal (balcão / online)</div>
       <div class="permit-cost">€100–500 · 20–45 р.д. · Дійсний 1 рік</div>
     </div>
-    <div class="permit-card" style="border-left-color:#16A34A">
+    <div class="permit-card">
       <div class="permit-name">Comunicação Prévia</div>
       <div class="permit-type" style="color:#16A34A">Спрощена процедура ✅ Найшвидше</div>
       <div class="permit-desc">Для нових будинків на Solo Urbano в зонах з PP/PU. Подається за 20 р.д. до початку. Мовчання Câmara = дозвіл.</div>
       <div class="permit-where">Portal do Licenciamento / Câmara</div>
       <div class="permit-cost">Taxa €500–3,000 · 20 р.д.</div>
     </div>
-    <div class="permit-card" style="border-left-color:#D97706">
+    <div class="permit-card">
       <div class="permit-name">Licença de Construção</div>
       <div class="permit-type" style="color:#D97706">Стандартна ліцензія</div>
       <div class="permit-desc">Для складніших проектів або коли Câmara вимагає. Повний розгляд. Після схвалення — Alvará de Construção.</div>
       <div class="permit-where">Câmara Municipal</div>
       <div class="permit-cost">Taxa €1,000–8,000 · 45–90 р.д.</div>
     </div>
-    <div class="permit-card" style="border-left-color:#7C3AED">
+    <div class="permit-card">
       <div class="permit-name">Licença de Urbanização</div>
       <div class="permit-type" style="color:#7C3AED">Для loteamento</div>
       <div class="permit-desc">Для розбиття землі на лоти та облаштування інфраструктури. Потрібна якщо ділите ділянку або будуєте цілий квартал.</div>
       <div class="permit-where">Câmara Municipal</div>
       <div class="permit-cost">€2,000–15,000+</div>
     </div>
-    <div class="permit-card" style="border-left-color:var(--teal)">
+    <div class="permit-card">
       <div class="permit-name">Alvará de Utilização</div>
       <div class="permit-type" style="color:var(--teal)">Фінальний дозвіл ✅</div>
       <div class="permit-desc">Дозвіл на використання будівлі. Після завершення будівництва та vistoria. Для проживання — обов'язковий. Вказує дозволене використання.</div>
       <div class="permit-where">Câmara Municipal</div>
       <div class="permit-cost">€200–800 · 20–45 р.д.</div>
     </div>
-    <div class="permit-card" style="border-left-color:#DC2626">
+    <div class="permit-card">
       <div class="permit-name">Autorização Especial (RAN/REN)</div>
       <div class="permit-type" style="color:#DC2626">Охоронні зони — складно</div>
       <div class="permit-desc">Для будівництва в захищених зонах — спеціальна авторизація від DGADR (RAN) або APA (REN). Часто відмовляють.</div>
@@ -1733,13 +1744,13 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
     <h2 class="section-title">Команда та їх роль</h2>
   </div>
   <div class="team-grid reveal">
-    <div class="team-card" style="border-left-color:var(--teal)">
+    <div class="team-card">
       <div class="team-role">Advogado — Адвокат</div>
       <span class="team-when">З першого дня</span>
       <div class="team-what">Перевірка юридичної чистоти ділянки, підготовка CPCV, супровід Escritura, консультація щодо податків. Шукайте спеціаліста з досвідом роботи з іноземцями.</div>
       <div class="team-cost">€1,500–5,000</div>
     </div>
-    <div class="team-card" style="border-left-color:var(--purple)">
+    <div class="team-card">
       <div class="team-role">Arquiteto — Архітектор</div>
       <span class="team-when">Обов'язково</span>
       <div class="team-what">Член Ordem dos Arquitetos. Розробляє проект, підписує всі документи для Câmara, є Diretor de Obra. Обирайте з досвідом prefab/модульних проектів.</div>
