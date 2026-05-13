@@ -189,6 +189,118 @@ body {
 }
 .nav-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
 
+/* ── HAMBURGER ── */
+.hamburger-btn {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  border-left: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.6);
+  padding: 0 1.1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  align-self: stretch;
+  transition: color .15s, background .15s;
+}
+.hamburger-btn:hover { color: rgba(255,255,255,.9); background: rgba(255,255,255,.05); }
+.hamburger-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
+.hamburger-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform .22s ease-out, opacity .15s;
+}
+.hamburger-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ── SIDEBAR ── */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,25,45,.55);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s;
+}
+.sidebar-overlay.open { opacity: 1; pointer-events: all; }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  bottom: 0;
+  width: 268px;
+  background: var(--white);
+  z-index: 201;
+  overflow-y: auto;
+  transition: right .28s cubic-bezier(0.22,1,0.36,1);
+  box-shadow: -6px 0 40px rgba(0,0,0,.18);
+  display: flex;
+  flex-direction: column;
+}
+.sidebar.open { right: 0; }
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--navy);
+  color: var(--white);
+  flex-shrink: 0;
+}
+.sidebar-head-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .55;
+}
+.sidebar-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.6);
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: .3rem .5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color .12s, background .12s;
+}
+.sidebar-close:hover { color: var(--white); background: rgba(255,255,255,.1); }
+
+.sidebar-nav { padding: .5rem 0; flex: 1; }
+.sidebar-item {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  text-align: left;
+  padding: .8rem 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .92rem;
+  color: var(--dark);
+  cursor: pointer;
+  transition: background .12s, border-color .12s, color .12s;
+  line-height: 1.3;
+}
+.sidebar-item:hover { background: oklch(96.5% 0.005 240); }
+.sidebar-item.active {
+  border-left-color: var(--teal);
+  color: var(--teal);
+  font-weight: 600;
+  background: oklch(96% 0.012 185);
+}
+
 /* ── SECTIONS ── */
 .section {
   max-width: 1100px;
@@ -834,8 +946,34 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
     <button class="nav-btn" onclick="showSection('budget')">Бюджет</button>
     <button class="nav-btn" onclick="showSection('faq')">Практика</button>
     <button class="nav-btn" onclick="showSection('capsule')">Капсульний будинок</button>
+    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Відкрити меню" aria-expanded="false" aria-controls="sidebar">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Sidebar overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="sidebar" aria-hidden="true" aria-label="Навігаційне меню">
+  <div class="sidebar-head">
+    <span class="sidebar-head-label">Розділи</span>
+    <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Закрити меню">✕</button>
+  </div>
+  <nav class="sidebar-nav">
+    <button class="sidebar-item active" onclick="sidebarNav('types')">Типи землі</button>
+    <button class="sidebar-item" onclick="sidebarNav('glossary')">Глосарій</button>
+    <button class="sidebar-item" onclick="sidebarNav('search')">Пошук ділянки</button>
+    <button class="sidebar-item" onclick="sidebarNav('check')">Перевірка статусу</button>
+    <button class="sidebar-item" onclick="sidebarNav('build-urbano')">Будівництво Urbano</button>
+    <button class="sidebar-item" onclick="sidebarNav('build-urbanizavel')">Urbanizável</button>
+    <button class="sidebar-item" onclick="sidebarNav('permits')">Дозволи</button>
+    <button class="sidebar-item" onclick="sidebarNav('utilities')">Комунікації</button>
+    <button class="sidebar-item" onclick="sidebarNav('team')">Команда</button>
+    <button class="sidebar-item" onclick="sidebarNav('budget')">Бюджет</button>
+    <button class="sidebar-item" onclick="sidebarNav('faq')">Практика</button>
+    <button class="sidebar-item" onclick="sidebarNav('capsule')">Капсульний будинок</button>
+  </nav>
+</aside>
 
 <!-- ═══ SECTION 1: ТИПИ ЗЕМЛІ ═══ -->
 <div id="types" class="section active">
@@ -2012,8 +2150,36 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
   function showSection(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     event.currentTarget.classList.add('active');
+    document.querySelector(`.sidebar-item[onclick="sidebarNav('${id}')"]`)?.classList.add('active');
+    const nav = document.querySelector('.sticky-nav');
+    const top = nav.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: prefersReduced ? 'instant' : 'smooth' });
+    setTimeout(() => observeReveals(), prefersReduced ? 0 : 80);
+  }
+
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const btn = document.getElementById('hamburger-btn');
+    const isOpen = sidebar.classList.contains('open');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    sidebar.setAttribute('aria-hidden', String(isOpen));
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
+
+  function sidebarNav(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    document.querySelector(`.nav-btn[onclick="showSection('${id}')"]`)?.classList.add('active');
+    toggleSidebar();
     const nav = document.querySelector('.sticky-nav');
     const top = nav.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({ top, behavior: prefersReduced ? 'instant' : 'smooth' });
@@ -2038,6 +2204,12 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
   }
 
   observeReveals();
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && document.getElementById('sidebar').classList.contains('open')) {
+      toggleSidebar();
+    }
+  });
 </script>
 </body>
 </html>
