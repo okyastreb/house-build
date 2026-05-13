@@ -531,6 +531,41 @@ body {
 }
 .budget-table .cat-row td { background: #F1F5F9 !important; font-weight: 600; color: var(--navy); font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; }
 .budget-val { font-family: 'DM Mono', monospace; color: var(--navy); font-weight: 600; }
+
+/* Companies table (section 12) */
+.companies-table { width: 100%; border-collapse: collapse; }
+.companies-table th {
+  background: var(--navy);
+  color: var(--white);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  white-space: nowrap;
+}
+.companies-table td {
+  padding: .85rem 1.25rem;
+  font-size: .88rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.companies-table tbody tr:last-child td { border-bottom: none; }
+.companies-table tbody tr:nth-child(even) td { background: oklch(98% 0.003 240); }
+.companies-table tbody tr:hover td { background: oklch(96.5% 0.006 240); transition: background .15s ease-out; }
+.companies-table td:first-child { white-space: nowrap; }
+.companies-table .site-link {
+  font-family: 'DM Mono', monospace;
+  font-size: .78rem;
+  color: var(--teal);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.companies-table .site-link:hover { text-decoration: underline; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; -webkit-overflow-scrolling: touch; }
+.table-wrap table { border-radius: 12px; overflow: hidden; }
 .budget-note { color: var(--muted); font-size: .82rem; }
 .budget-summary {
   display: grid;
@@ -1907,21 +1942,21 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
     <span>Запитайте кожну компанію ті самі 6 питань: чи вони займаються ліцензуванням, фундаментом, транспортом, монтажем, підключенням комунікацій та Alvará de Utilização. Це швидко відокремить справжній turnkey від тих хто лише продає модуль.</span>
   </div>
   <div class="table-wrap reveal">
-    <table>
+    <table class="companies-table">
       <thead>
         <tr><th>Компанія</th><th>Опис</th><th>Turnkey</th><th>Сайт</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Litehaus</strong></td><td>Підбирає проекти з будівельниками за землею, бюджетом і термінами. Корисно якщо потрібна допомога від вибору ділянки.</td><td class="budget-val" style="color:var(--green)">✓ Full-service</td><td class="check-where">litehaus.co</td></tr>
-        <tr><td><strong>Kitur</strong></td><td>Проектує та будує повністю кастомні модульні будинки під ключ в Португалії.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td class="check-where">kitur.pt</td></tr>
-        <tr><td><strong>Senmar</strong></td><td>Дизайн, виробництво, доставка та монтаж. Явно пропонує turnkey рішення.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td class="check-where">senmar.pt</td></tr>
-        <tr><td><strong>Dreamdomus</strong></td><td>Будівельна компанія та архітектурне бюро. Може покривати дизайн + будівництво.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td class="check-where">dreamdomus.com</td></tr>
-        <tr><td><strong>Maestro Casas</strong></td><td>Модульні будинки з turnkey сервісом в Португалії.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td class="check-where">maestrocasas.pt</td></tr>
-        <tr><td><strong>Construções Modulares</strong></td><td>Модульні будинки під ключ та кастомні проекти.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td class="check-where">construcoesmodulares.pt</td></tr>
-        <tr><td><strong>ODUM / Terra Houses</strong></td><td>Власні монтажні команди для turnkey монтажу, надає архітектурні та спеціальні проекти.</td><td class="budget-val" style="color:var(--green)">✓ Full-service</td><td class="check-where">odum.pt</td></tr>
-        <tr><td><strong>Fábrica das Casas</strong></td><td>Виробник модульних будинків з великим портфоліо завершених проектів.</td><td class="budget-val" style="color:var(--mid)">~ Можливо</td><td class="check-where">fabricadascasas.com</td></tr>
-        <tr><td><strong>MODIKO</strong></td><td>Модульне будівництво оцинкованою сталлю та заводськими стінами. Full-solution позиціонування.</td><td class="budget-val" style="color:var(--mid)">~ Можливо</td><td class="check-where">modiko.pt</td></tr>
-        <tr><td><strong>Casa DIFF</strong></td><td>Prefab та модульні будинки включно з мобільними. Виробництво, транспорт та монтаж.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td class="check-where">casadiff.com</td></tr>
+        <tr><td><strong>Litehaus</strong></td><td>Підбирає проекти з будівельниками за землею, бюджетом і термінами. Корисно якщо потрібна допомога від вибору ділянки.</td><td class="budget-val" style="color:var(--green)">✓ Full-service</td><td><a href="https://litehaus.co" target="_blank" rel="noopener" class="site-link">litehaus.co</a></td></tr>
+        <tr><td><strong>Kitur</strong></td><td>Проектує та будує повністю кастомні модульні будинки під ключ в Португалії.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td><a href="https://kitur.pt" target="_blank" rel="noopener" class="site-link">kitur.pt</a></td></tr>
+        <tr><td><strong>Senmar</strong></td><td>Дизайн, виробництво, доставка та монтаж. Явно пропонує turnkey рішення.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td><a href="https://senmar.pt" target="_blank" rel="noopener" class="site-link">senmar.pt</a></td></tr>
+        <tr><td><strong>Dreamdomus</strong></td><td>Будівельна компанія та архітектурне бюро. Може покривати дизайн + будівництво.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td><a href="https://dreamdomus.com" target="_blank" rel="noopener" class="site-link">dreamdomus.com</a></td></tr>
+        <tr><td><strong>Maestro Casas</strong></td><td>Модульні будинки з turnkey сервісом в Португалії.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td><a href="https://maestrocasas.pt" target="_blank" rel="noopener" class="site-link">maestrocasas.pt</a></td></tr>
+        <tr><td><strong>Construções Modulares</strong></td><td>Модульні будинки під ключ та кастомні проекти.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td><a href="https://construcoesmodulares.pt" target="_blank" rel="noopener" class="site-link">construcoesmodulares.pt</a></td></tr>
+        <tr><td><strong>ODUM / Terra Houses</strong></td><td>Власні монтажні команди для turnkey монтажу, надає архітектурні та спеціальні проекти.</td><td class="budget-val" style="color:var(--green)">✓ Full-service</td><td><a href="https://odum.pt" target="_blank" rel="noopener" class="site-link">odum.pt</a></td></tr>
+        <tr><td><strong>Fábrica das Casas</strong></td><td>Виробник модульних будинків з великим портфоліо завершених проектів.</td><td class="budget-val" style="color:var(--mid)">~ Можливо</td><td><a href="https://fabricadascasas.com" target="_blank" rel="noopener" class="site-link">fabricadascasas.com</a></td></tr>
+        <tr><td><strong>MODIKO</strong></td><td>Модульне будівництво оцинкованою сталлю та заводськими стінами. Full-solution позиціонування.</td><td class="budget-val" style="color:var(--mid)">~ Можливо</td><td><a href="https://modiko.pt" target="_blank" rel="noopener" class="site-link">modiko.pt</a></td></tr>
+        <tr><td><strong>Casa DIFF</strong></td><td>Prefab та модульні будинки включно з мобільними. Виробництво, транспорт та монтаж.</td><td class="budget-val" style="color:var(--green)">✓ Turnkey</td><td><a href="https://casadiff.com" target="_blank" rel="noopener" class="site-link">casadiff.com</a></td></tr>
       </tbody>
     </table>
   </div>
