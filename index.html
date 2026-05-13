@@ -598,6 +598,121 @@ body {
 .compare-row:last-child { border-bottom: none; }
 .compare-row-icon { flex-shrink: 0; font-size: .9rem; }
 
+/* ── FAQ / ПРАКТИКА ── */
+.faq-block {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background: var(--white);
+}
+.faq-q {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--navy);
+  color: var(--white);
+  font-size: .95rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.faq-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .7rem;
+  font-weight: 500;
+  background: var(--teal);
+  color: var(--white);
+  padding: .2rem .5rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  letter-spacing: .04em;
+}
+.faq-a {
+  padding: 1.4rem 1.5rem;
+  font-size: .9rem;
+  color: var(--mid);
+  line-height: 1.7;
+}
+.faq-a strong { color: var(--dark); }
+.faq-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .75rem;
+  margin: 1.1rem 0;
+}
+@media(max-width:560px){ .faq-compare { grid-template-columns: 1fr; } }
+.faq-compare-item {
+  background: var(--sand);
+  border-radius: 8px;
+  padding: .85rem 1rem;
+  border-left: 3px solid var(--border);
+}
+.faq-compare-title { font-size: .82rem; font-weight: 600; margin-bottom: .25rem; font-family: 'DM Mono', monospace; }
+.faq-compare-desc  { font-size: .82rem; color: var(--mid); }
+.faq-flow-short {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1.1rem;
+  padding: .85rem 1rem;
+  background: var(--sand);
+  border-radius: 8px;
+}
+.faq-step {
+  font-size: .78rem;
+  font-family: 'DM Mono', monospace;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: .25rem .65rem;
+  border-radius: 4px;
+  color: var(--dark);
+}
+.faq-arrow { color: var(--muted); font-size: .85rem; }
+.faq-phrase {
+  border-left: 3px solid var(--border);
+  padding: .7rem 1rem;
+  margin-bottom: .75rem;
+  border-radius: 0 8px 8px 0;
+  background: #FAFAFA;
+}
+.faq-phrase-term { font-family: 'DM Mono', monospace; font-size: .78rem; font-weight: 500; color: var(--navy); margin-bottom: .3rem; }
+.faq-phrase-def  { font-size: .85rem; color: var(--mid); line-height: 1.6; }
+.faq-sub-title {
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin: 1.5rem 0 .75rem;
+}
+.faq-scenario {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: .75rem;
+}
+.faq-scenario-head {
+  padding: .7rem 1rem;
+  font-size: .82rem;
+  font-weight: 600;
+}
+.faq-scenario-body {
+  padding: 1rem 1.1rem;
+  font-size: .85rem;
+  color: var(--mid);
+  line-height: 1.65;
+}
+.faq-ol {
+  margin: .6rem 0 0 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+.faq-ol li { font-size: .85rem; }
+
 /* ── FOOTER ── */
 footer {
   background: var(--navy2);
@@ -682,6 +797,7 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
     <button class="nav-btn" onclick="showSection('utilities')">Комунікації</button>
     <button class="nav-btn" onclick="showSection('team')">Команда</button>
     <button class="nav-btn" onclick="showSection('budget')">Бюджет</button>
+    <button class="nav-btn" onclick="showSection('faq')">Практика</button>
   </div>
 </nav>
 
@@ -1447,6 +1563,171 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
     <div class="bsum-card"><div class="bsum-label">Страхування (Multi-Riscos)</div><div class="bsum-val">€200–500</div><div class="bsum-note">Обов'язково</div></div>
     <div class="bsum-card"><div class="bsum-label">Разом на рік</div><div class="bsum-val">€400–1,400</div><div class="bsum-note">Типовий будинок</div></div>
   </div>
+</div>
+
+<!-- ═══ SECTION 11: ПРАКТИКА ═══ -->
+<div id="faq" class="section">
+  <div class="section-header reveal">
+    <span class="section-num">11</span>
+    <h2 class="section-title">Питання & Практика</h2>
+  </div>
+
+  <!-- Q1: não edificado -->
+  <div class="faq-block reveal">
+    <div class="faq-q">
+      <span class="faq-label">Q</span>
+      <span>Solo Urbano não edificado — це земля вже з проектом?</span>
+    </div>
+    <div class="faq-a">
+      <p><strong>Ні. «Não edificado» буквально означає «незабудована»</strong> — порожня ділянка без жодних будівель і без проекту.</p>
+      <p style="margin-top:.75rem">Це просто земля з правильним юридичним статусом: вона знаходиться в міській зоні PDM, що означає <strong>право на отримання дозволу на будівництво</strong>. Але сам дозвіл і проект — це ваша робота після купівлі.</p>
+      <div class="faq-compare">
+        <div class="faq-compare-item" style="border-left:3px solid var(--green)">
+          <div class="faq-compare-title" style="color:var(--green)">Urbano edificado</div>
+          <div class="faq-compare-desc">Ділянка з будинком, який вже існує</div>
+        </div>
+        <div class="faq-compare-item" style="border-left:3px solid var(--teal)">
+          <div class="faq-compare-title" style="color:var(--teal)">Urbano não edificado</div>
+          <div class="faq-compare-desc">Порожня ділянка в міській зоні, готова до забудови</div>
+        </div>
+      </div>
+      <div class="faq-flow-short">
+        <span class="faq-step">Купуєте землю</span>
+        <span class="faq-arrow">→</span>
+        <span class="faq-step">Наймаєте архітектора</span>
+        <span class="faq-arrow">→</span>
+        <span class="faq-step">Проект капсули</span>
+        <span class="faq-arrow">→</span>
+        <span class="faq-step">Comunicação Prévia</span>
+        <span class="faq-arrow">→</span>
+        <span class="faq-step">Будуєте</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2: оголошення -->
+  <div class="faq-block reveal">
+    <div class="faq-q">
+      <span class="faq-label">Q</span>
+      <span>Що означає оголошення: «Lotes vendidos com comunicação prévia do projeto a CMMafra. Existindo alguns com licença de construção já paga»?</span>
+    </div>
+    <div class="faq-a">
+      <p style="margin-bottom:1rem">Це оголошення про продаж земельних ділянок біля Ерісейри (~40 хв від Лісабона). Розбираємо кожну фразу:</p>
+
+      <div class="faq-phrase">
+        <div class="faq-phrase-term">«Lotes para moradias T3 ou T4 geminadas»</div>
+        <div class="faq-phrase-def">Ділянки під будівництво T3 (3 спальні) або T4 (4 спальні). <strong>Geminadas</strong> = таунхауси — два будинки зі спільною стіною.</div>
+      </div>
+
+      <div class="faq-phrase">
+        <div class="faq-phrase-term">«Numa urbanização pacata a 2km da Ericeira»</div>
+        <div class="faq-phrase-def">В тихому житловому кварталі за 2 км від Ерісейри — популярне серфінгове містечко на атлантичному узбережжі.</div>
+      </div>
+
+      <div class="faq-phrase" style="border-left-color:var(--teal)">
+        <div class="faq-phrase-term" style="color:var(--teal)">«Lotes vendidos com Comunicação Prévia do projeto à CMMafra» 🔑</div>
+        <div class="faq-phrase-def">Ділянки продаються <strong>вже з поданою Comunicação Prévia</strong> до муніципалітету Мафра. Архітектурний проект вже розроблений і поданий до Câmara. Не треба чекати і платити за проект з нуля.</div>
+      </div>
+
+      <div class="faq-phrase" style="border-left-color:var(--green)">
+        <div class="faq-phrase-term" style="color:var(--green)">«Existindo alguns com licença de construção já paga» 🔑</div>
+        <div class="faq-phrase-def">Деякі ділянки продаються вже з <strong>оплаченою ліцензією на будівництво</strong> — Câmara затвердила проект, можна починати будувати майже одразу.</div>
+      </div>
+
+      <p class="faq-sub-title">Що це економить — порівняння варіантів</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Варіант</th><th>Що включено</th><th>Що економить</th></tr></thead>
+          <tbody>
+            <tr><td>Звичайна ділянка</td><td>Тільки земля</td><td>Нічого</td></tr>
+            <tr><td>З Comunicação Prévia</td><td>Земля + проект поданий</td><td class="budget-val" style="color:var(--teal)">€5,000–15,000 + час</td></tr>
+            <tr><td>З Licença já paga</td><td>Земля + проект + дозвіл</td><td class="budget-val" style="color:var(--green)">€5,000–15,000 + taxas + 3–6 міс.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert warn" style="margin-top:1rem">
+        <span class="alert-icon">⚠️</span>
+        <span>Проект вже готовий під T3/T4 geminada (таунхаус). Якщо ви хочете капсульний будинок іншої форми — можливо доведеться робити новий проект. Уточніть у продавця: чи можна змінити проект?</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3: заміна проекту -->
+  <div class="faq-block reveal">
+    <div class="faq-q">
+      <span class="faq-label">Q</span>
+      <span>Чи можливо замінити проект на вже придбаній ділянці з ліцензією?</span>
+    </div>
+    <div class="faq-a">
+      <p style="margin-bottom:1rem">Так, замінити проект можливо. Але є нюанси залежно від того, на якому етапі знаходиться дозвіл.</p>
+
+      <div class="faq-scenario">
+        <div class="faq-scenario-head" style="background:var(--tealLt);color:var(--teal2)">
+          Сценарій А — є тільки Comunicação Prévia (подана, але не затверджена)
+        </div>
+        <div class="faq-scenario-body">
+          <p>Це найпростіший варіант. Comunicação Prévia — це лише повідомлення, не фінальний дозвіл. Ви можете:</p>
+          <ol class="faq-ol">
+            <li>Найняти нового архітектора</li>
+            <li>Розробити новий проект (ваша капсула)</li>
+            <li>Подати нову Comunicação Prévia замість старої</li>
+            <li>Стара автоматично скасовується</li>
+          </ol>
+          <div style="display:flex;gap:1rem;margin-top:.75rem;flex-wrap:wrap">
+            <span class="flow-meta">+2–4 місяці на новий проект</span>
+            <span class="flow-meta" style="background:var(--amberLt);color:#92400E">€5,000–15,000 на архітектора</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-scenario">
+        <div class="faq-scenario-head" style="background:var(--amberLt);color:#92400E">
+          Сценарій Б — є Licença de Construção вже оплачена
+        </div>
+        <div class="faq-scenario-body">
+          <p>Складніше, але теж можливо. Ліцензія видана під конкретний проект (T3/T4 geminada):</p>
+          <ol class="faq-ol">
+            <li>Подати <strong>Pedido de Alteração</strong> (заявка на зміну) до Câmara</li>
+            <li>Архітектор розробляє новий проект</li>
+            <li>Câmara розглядає — якщо параметри сильно змінюються → фактично нова ліцензія</li>
+            <li>Можливо доведеться доплатити різницю в taxas</li>
+          </ol>
+          <p style="margin-top:.75rem;font-size:.85rem;color:var(--mid)"><strong>Головне питання до Câmara:</strong> чи дозволяє PDM зони одиночний будинок (moradia isolada) замість geminada?</p>
+        </div>
+      </div>
+
+      <p class="faq-sub-title">Що перевірити перед купівлею — 3 питання</p>
+      <div class="check-grid" style="margin-top:.75rem">
+        <div class="check-item">
+          <div class="check-num">1</div>
+          <div>
+            <div class="check-label">Тип будівлі в PDM</div>
+            <div class="check-where">Câmara Municipal (CMMafra)</div>
+            <div class="check-what">Чи дозволяє PDM зони <strong>moradia isolada</strong> (одиночний будинок) а не тільки geminada?</div>
+          </div>
+        </div>
+        <div class="check-item">
+          <div class="check-num">2</div>
+          <div>
+            <div class="check-label">Параметри ділянки</div>
+            <div class="check-where">З Caderneta Predial та PDM</div>
+            <div class="check-what">Мінімальні відступи, максимальна площа забудови (índice de ocupação), максимальна висота.</div>
+          </div>
+        </div>
+        <div class="check-item" style="border-left:3px solid var(--teal)">
+          <div class="check-num" style="background:var(--teal)">3</div>
+          <div>
+            <div class="check-label">Consulta Prévia архітектора</div>
+            <div class="check-where">До підписання CPCV</div>
+            <div class="check-what">Попросіть архітектора зробити неофіційний попередній запит до CMMafra з ескізом капсули. Дає впевненість перед покупкою.</div>
+            <div class="check-cost">€0–200 · 1–2 тижні</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <footer>
