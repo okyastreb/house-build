@@ -503,8 +503,8 @@ body {
 }
 .check-item:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,.07); }
 .check-num {
-  width: 34px; height: 34px;
-  background: #059669;
+  width: 32px; height: 32px;
+  background: var(--teal);
   color: var(--white);
   border-radius: 50%;
   font-size: .85rem; font-weight: 600;
@@ -515,7 +515,16 @@ body {
 .check-label { font-size: .95rem; font-weight: 600; color: var(--dark); margin-bottom: .2rem; }
 .check-where { font-size: .78rem; color: var(--teal); font-family: 'DM Mono', monospace; margin-bottom: .3rem; }
 .check-what  { font-size: .82rem; color: var(--mid); line-height: 1.5; }
-.check-cost  { font-size: .78rem; font-weight: 600; color: #059669; margin-top: .4rem; }
+.check-cost  {
+  display: inline-block;
+  margin-top: .4rem;
+  font-size: .75rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--teal);
+  background: var(--tealLt);
+  padding: .15rem .5rem;
+  border-radius: 4px;
+}
 
 /* ── BUILD STEPS ── */
 .build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
@@ -534,23 +543,32 @@ body {
   border-color: var(--teal);
 }
 .build-item.final .build-title,
-.build-item.final .build-sub,
-.build-item.final .build-dur { color: var(--white) !important; }
+.build-item.final .build-sub { color: var(--white) !important; }
+.build-item.final .build-dur { background: rgba(255,255,255,.18); color: var(--white) !important; }
 .build-item.final .build-num { background: var(--white); color: var(--teal); }
 .build-top { display: flex; align-items: center; gap: .7rem; margin-bottom: .6rem; }
 .build-num {
-  width: 28px; height: 28px;
-  background: var(--purple);
+  width: 32px; height: 32px;
+  background: var(--teal);
   color: var(--white);
   border-radius: 50%;
-  font-size: .78rem; font-weight: 600;
+  font-size: .85rem; font-weight: 600;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   font-family: 'DM Mono', monospace;
 }
-.build-title { font-size: .92rem; font-weight: 600; color: var(--dark); }
+.build-title { font-size: .95rem; font-weight: 600; color: var(--dark); }
 .build-sub  { font-size: .82rem; color: var(--mid); line-height: 1.55; margin-bottom: .5rem; }
-.build-dur  { font-size: .75rem; font-family: 'DM Mono', monospace; color: var(--muted); }
+.build-dur  {
+  display: inline-block;
+  margin-top: .2rem;
+  font-size: .75rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--teal);
+  background: var(--tealLt);
+  padding: .15rem .5rem;
+  border-radius: 4px;
+}
 
 /* ── UTILITIES ── */
 .utils-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
