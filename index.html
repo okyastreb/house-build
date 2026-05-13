@@ -192,37 +192,29 @@ body {
 }
 .nav-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
 
-/* ── HAMBURGER ── */
+/* ── HAMBURGER (mobile only) ── */
 .hamburger-btn {
-  flex-shrink: 0;
   background: none;
   border: none;
-  border-left: 1px solid rgba(255,255,255,.08);
-  color: rgba(255,255,255,.6);
-  padding: 0 1.1rem;
+  color: rgba(255,255,255,.8);
+  padding: .9rem 1rem;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  transition: color .15s, background .15s;
+  transition: color .15s;
 }
-.hamburger-btn:hover { color: rgba(255,255,255,.9); background: rgba(255,255,255,.05); }
-.hamburger-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
 .hamburger-btn span {
   display: block;
   width: 18px;
   height: 2px;
   background: currentColor;
   border-radius: 1px;
-  transition: transform .22s ease-out, opacity .15s;
 }
-.hamburger-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.hamburger-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* ── SIDEBAR ── */
+/* ── SIDEBAR (permanent left, dashboard style) ── */
 .sidebar-overlay {
   position: fixed;
   inset: 0;
@@ -232,52 +224,55 @@ body {
   pointer-events: none;
   transition: opacity .25s;
 }
-.sidebar-overlay.open { opacity: 1; pointer-events: all; }
 
 .sidebar {
   position: fixed;
   top: 0;
-  right: -300px;
+  left: 0;
   bottom: 0;
-  width: 268px;
-  background: var(--white);
-  z-index: 201;
+  width: 220px;
+  background: var(--navy);
+  z-index: 100;
   overflow-y: auto;
-  transition: right .28s cubic-bezier(0.22,1,0.36,1);
-  box-shadow: -6px 0 40px rgba(0,0,0,.18);
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 0 16px rgba(0,0,0,.18);
 }
-.sidebar.open { right: 0; }
 
 .sidebar-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.25rem;
-  background: var(--navy);
-  color: var(--white);
+  padding: 1.5rem 1.25rem 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
   flex-shrink: 0;
 }
-.sidebar-head-label {
+.sidebar-flag { font-size: 1.5rem; line-height: 1; margin-bottom: .5rem; display: block; }
+.sidebar-site-name {
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -.01em;
+  line-height: 1.3;
+}
+.sidebar-site-sub {
   font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  opacity: .55;
+  color: rgba(255,255,255,.4);
+  margin-top: .15rem;
+  font-family: 'DM Mono', monospace;
 }
 .sidebar-close {
+  display: none;
   background: none;
   border: none;
-  color: rgba(255,255,255,.6);
-  font-size: 1.15rem;
+  color: rgba(255,255,255,.5);
+  font-size: 1.1rem;
   line-height: 1;
   padding: .3rem .5rem;
   cursor: pointer;
   border-radius: 4px;
-  transition: color .12s, background .12s;
+  transition: color .12s;
+  float: right;
+  margin-top: -2rem;
 }
-.sidebar-close:hover { color: var(--white); background: rgba(255,255,255,.1); }
+.sidebar-close:hover { color: var(--white); }
 
 .sidebar-nav { padding: .5rem 0; flex: 1; }
 .sidebar-item {
@@ -287,23 +282,45 @@ body {
   border: none;
   border-left: 3px solid transparent;
   text-align: left;
-  padding: .8rem 1.5rem;
+  padding: .75rem 1.25rem;
   font-family: 'DM Sans', sans-serif;
-  font-size: .92rem;
-  color: var(--dark);
+  font-size: .85rem;
+  color: rgba(255,255,255,.45);
   cursor: pointer;
   transition: background .12s, border-color .12s, color .12s;
-  line-height: 1.3;
+  line-height: 1.4;
 }
-.sidebar-item:hover { background: oklch(96.5% 0.005 240); }
+.sidebar-item:hover { color: rgba(255,255,255,.9); background: rgba(255,255,255,.06); border-left-color: rgba(255,255,255,.15); }
 .sidebar-item.active {
   border-left-color: var(--teal);
   color: var(--teal);
   font-weight: 600;
-  background: oklch(96% 0.012 185);
+  background: rgba(13,148,136,.12);
+}
+
+/* ── MOBILE TOP BAR ── */
+.mobile-bar {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  align-items: center;
+  gap: .5rem;
+  padding: 0 .5rem;
+}
+.mobile-bar-title {
+  flex: 1;
+  font-size: .85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.8);
+  padding-left: .25rem;
 }
 
 /* ── SECTIONS ── */
+.sticky-nav { display: none; }
+
 .section {
   max-width: 1100px;
   margin: 0 auto;
@@ -311,6 +328,13 @@ body {
   display: none;
 }
 .section.active { display: block; }
+
+/* Desktop: offset content for sidebar */
+@media(min-width: 769px) {
+  .hero { margin-left: 220px; }
+  .section { margin-left: 220px; margin-right: 0; max-width: none; width: calc(100% - 220px - 4rem); padding: 3.5rem 3rem 5rem 3rem; }
+  footer { margin-left: 220px; }
+}
 
 .section-header {
   display: flex;
@@ -897,16 +921,21 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
 .reveal.visible { opacity: 1; transform: none; }
 
 @media(max-width:768px) {
-  .hero { padding: 5rem 1.5rem 3rem; min-height: auto; padding-top: 7rem; }
+  .hero { padding: 3rem 1.5rem 3rem; min-height: auto; }
   .section { padding: 2.5rem 1.1rem 3.5rem; }
   .section-header { margin-bottom: 2rem; }
   .glossary-grid { grid-template-columns: 1fr; }
   .compare-grid { grid-template-columns: 1fr; }
   .budget-summary { grid-template-columns: 1fr 1fr; }
+  /* Mobile: sidebar slides in from left */
+  .sidebar { left: -240px; transition: left .28s cubic-bezier(0.22,1,0.36,1); }
+  .sidebar.open { left: 0; }
+  .sidebar-overlay.open { opacity: 1; pointer-events: all; }
+  .sidebar-close { display: block; }
+  .mobile-bar { display: flex; }
 }
 @media(max-width:480px) {
   .hero h1 { font-size: 2rem; }
-  .hero { padding: 6rem 1.2rem 2.5rem; }
   .budget-summary { grid-template-columns: 1fr; }
   .flow-grid { grid-template-columns: 1fr; }
   .check-grid { grid-template-columns: 1fr; }
@@ -914,6 +943,14 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
 </style>
 </head>
 <body>
+
+<!-- ═══ MOBILE BAR ═══ -->
+<div class="mobile-bar" id="mobile-bar">
+  <button class="hamburger-btn" onclick="toggleSidebar()" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+  <span class="mobile-bar-title">Земля та будинок · Португалія</span>
+</div>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
@@ -949,17 +986,16 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
     <button class="nav-btn" onclick="showSection('faq')">Практика</button>
     <button class="nav-btn" onclick="showSection('capsule')">Капсульний будинок</button>
   </div>
-  <button class="hamburger-btn" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Відкрити меню" aria-expanded="false" aria-controls="sidebar">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <!-- Sidebar overlay -->
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
-<aside class="sidebar" id="sidebar" aria-hidden="true" aria-label="Навігаційне меню">
+<aside class="sidebar" id="sidebar" aria-label="Навігаційне меню">
   <div class="sidebar-head">
-    <span class="sidebar-head-label">Розділи</span>
     <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Закрити меню">✕</button>
+    <span class="sidebar-flag">🇵🇹</span>
+    <div class="sidebar-site-name">Земля та будинок</div>
+    <div class="sidebar-site-sub">Португалія 2025–26</div>
   </div>
   <nav class="sidebar-nav">
     <button class="sidebar-item active" onclick="sidebarNav('types')">Типи землі</button>
@@ -2149,43 +2185,31 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
 <script>
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function showSection(id) {
+  function activateSection(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    event.currentTarget.classList.add('active');
     document.querySelector(`.sidebar-item[onclick="sidebarNav('${id}')"]`)?.classList.add('active');
-    const nav = document.querySelector('.sticky-nav');
-    const top = nav.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top, behavior: prefersReduced ? 'instant' : 'smooth' });
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
     setTimeout(() => observeReveals(), prefersReduced ? 0 : 80);
+  }
+
+  function showSection(id) {
+    activateSection(id);
   }
 
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebar-overlay');
-    const btn = document.getElementById('hamburger-btn');
     const isOpen = sidebar.classList.contains('open');
     sidebar.classList.toggle('open');
     overlay.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(!isOpen));
-    sidebar.setAttribute('aria-hidden', String(isOpen));
     document.body.style.overflow = isOpen ? '' : 'hidden';
   }
 
   function sidebarNav(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.currentTarget.classList.add('active');
-    document.querySelector(`.nav-btn[onclick="showSection('${id}')"]`)?.classList.add('active');
-    toggleSidebar();
-    const nav = document.querySelector('.sticky-nav');
-    const top = nav.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top, behavior: prefersReduced ? 'instant' : 'smooth' });
-    setTimeout(() => observeReveals(), prefersReduced ? 0 : 80);
+    activateSection(id);
+    if (window.innerWidth <= 768) toggleSidebar();
   }
 
   function observeReveals() {
