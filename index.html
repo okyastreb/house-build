@@ -156,8 +156,12 @@ body {
   background: rgba(27,58,107,.97);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  align-items: stretch;
 }
 .nav-inner {
+  flex: 1;
+  min-width: 0;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -203,7 +207,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  align-self: stretch;
   transition: color .15s, background .15s;
 }
 .hamburger-btn:hover { color: rgba(255,255,255,.9); background: rgba(255,255,255,.05); }
@@ -946,10 +949,10 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
     <button class="nav-btn" onclick="showSection('budget')">Бюджет</button>
     <button class="nav-btn" onclick="showSection('faq')">Практика</button>
     <button class="nav-btn" onclick="showSection('capsule')">Капсульний будинок</button>
-    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Відкрити меню" aria-expanded="false" aria-controls="sidebar">
-      <span></span><span></span><span></span>
-    </button>
   </div>
+  <button class="hamburger-btn" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Відкрити меню" aria-expanded="false" aria-controls="sidebar">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- Sidebar overlay -->
