@@ -686,7 +686,7 @@ body {
   font-size: .95rem;
 }
 .budget-table .cat-row td { background: #F1F5F9 !important; font-weight: 600; color: var(--teal); font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; }
-.budget-val { font-family: 'DM Mono', monospace; color: var(--teal); font-weight: 600; }
+.budget-val { font-family: 'DM Mono', monospace; color: var(--teal); font-weight: 400; }
 
 /* Companies table (section 12) */
 .companies-table { width: 100%; border-collapse: collapse; }
@@ -743,6 +743,72 @@ body {
 .bsum-card.highlight .bsum-label,
 .bsum-card.highlight .bsum-val,
 .bsum-card.highlight .bsum-note { color: var(--white); }
+
+/* ── BUDGET COMPARISON TABLE ── */
+.vs-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.vs-table thead th {
+  padding: 1rem 1.2rem;
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-align: left;
+}
+.vs-table thead .vs-head-label {
+  background: #F8FAFF;
+  color: var(--muted);
+  width: 34%;
+}
+.vs-table thead .vs-head-classic {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+}
+.vs-table thead .vs-head-modular {
+  background: var(--teal);
+  color: var(--white);
+  text-align: center;
+}
+.vs-table tbody tr { border-bottom: 1px solid var(--border); }
+.vs-table tbody tr:last-child { border-bottom: none; }
+.vs-table tbody tr.vs-cat td {
+  background: #F1F5F9;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: .55rem 1.2rem;
+}
+.vs-table tbody tr:nth-child(even):not(.vs-cat) td { background: #FAFCFF; }
+.vs-table td {
+  padding: .75rem 1.2rem;
+  font-size: .88rem;
+  vertical-align: middle;
+}
+.vs-table td.vs-item { color: var(--dark); }
+.vs-table td.vs-val {
+  font-family: 'DM Mono', monospace;
+  font-size: .85rem;
+  font-weight: 400;
+  text-align: center;
+}
+.vs-table td.vs-val.classic { color: var(--navy); }
+.vs-table td.vs-val.modular { color: var(--teal); }
+.vs-table tfoot td {
+  font-weight: 700;
+  font-size: .9rem;
+  padding: 1rem 1.2rem;
+}
+.vs-table tfoot td.vs-item { background: #EFF6FF; color: var(--dark); }
+.vs-table tfoot td.classic { background: var(--navy); color: var(--white); text-align: center; font-family: 'DM Mono', monospace; }
+.vs-table tfoot td.modular { background: var(--teal); color: var(--white); text-align: center; font-family: 'DM Mono', monospace; }
+.vs-note { font-size: .75rem; color: var(--muted); margin-top: .5rem; text-align: right; font-family: 'DM Mono', monospace; }
 
 /* ── ALERTS ── */
 .alert {
@@ -1793,6 +1859,61 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
     <div class="bsum-card"><div class="bsum-label">Страхування (Multi-Riscos)</div><div class="bsum-val">€200–500</div><div class="bsum-note">Обов'язково</div></div>
     <div class="bsum-card"><div class="bsum-label">Разом на рік</div><div class="bsum-val">€400–1,400</div><div class="bsum-note">Типовий будинок</div></div>
   </div>
+
+  <!-- ПОРІВНЯННЯ ВАРІАНТІВ -->
+  <div class="sub-title reveal">Порівняння варіантів будівництва · 80 м²</div>
+  <div class="table-wrap reveal">
+    <table class="vs-table">
+      <thead>
+        <tr>
+          <th class="vs-head-label">Стаття витрат</th>
+          <th class="vs-head-classic">🏠 Звичайний будинок<br><span style="font-weight:400;opacity:.75;font-size:.75rem">Традиційне будівництво</span></th>
+          <th class="vs-head-modular">📦 Модульний будинок<br><span style="font-weight:400;opacity:.75;font-size:.75rem">Prefab / капсула</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="vs-cat"><td colspan="3">🏞️ Земельна ділянка</td></tr>
+        <tr><td class="vs-item">Solo Urbano 1 000–1 500 м²</td><td class="vs-val classic">€30 000–80 000</td><td class="vs-val modular">€30 000–80 000</td></tr>
+        <tr><td class="vs-item">IMT 6.5% + Imposto do Selo 0.8%</td><td class="vs-val classic">€2 000–6 000</td><td class="vs-val modular">€2 000–6 000</td></tr>
+        <tr><td class="vs-item">Нотаріус + реєстрація</td><td class="vs-val classic">€600–1 500</td><td class="vs-val modular">€600–1 500</td></tr>
+
+        <tr class="vs-cat"><td colspan="3">📐 Проектування та дозволи</td></tr>
+        <tr><td class="vs-item">Архітектор + технічні проекти</td><td class="vs-val classic">€5 000–15 000</td><td class="vs-val modular">€3 000–8 000</td></tr>
+        <tr><td class="vs-item">Геодезична зйомка</td><td class="vs-val classic">€400–1 500</td><td class="vs-val modular">€400–1 500</td></tr>
+        <tr><td class="vs-item">Licença de Construção (збори Câmara)</td><td class="vs-val classic">€500–8 000</td><td class="vs-val modular">€500–8 000</td></tr>
+        <tr><td class="vs-item">Energia + REH сертифікат</td><td class="vs-val classic">€800–2 000</td><td class="vs-val modular">€500–1 200</td></tr>
+
+        <tr class="vs-cat"><td colspan="3">🏗️ Будівництво та монтаж</td></tr>
+        <tr><td class="vs-item">Фундамент (бетонна плита)</td><td class="vs-val classic">€8 000–20 000</td><td class="vs-val modular">€5 000–12 000</td></tr>
+        <tr><td class="vs-item">Конструктив / модуль + виробництво</td><td class="vs-val classic">€40 000–90 000</td><td class="vs-val modular">€35 000–70 000</td></tr>
+        <tr><td class="vs-item">Доставка та монтаж (для модуля)</td><td class="vs-val classic">—</td><td class="vs-val modular">€3 000–8 000</td></tr>
+        <tr><td class="vs-item">Оздоблення, вікна, двері</td><td class="vs-val classic">€10 000–25 000</td><td class="vs-val modular">Зазвичай включено</td></tr>
+
+        <tr class="vs-cat"><td colspan="3">🔌 Підключення комунікацій</td></tr>
+        <tr><td class="vs-item">Електрика (EDP) + лічильник</td><td class="vs-val classic">€1 000–4 000</td><td class="vs-val modular">€1 000–4 000</td></tr>
+        <tr><td class="vs-item">Вода (SMAS/SIAG) або свердловина</td><td class="vs-val classic">€1 500–8 000</td><td class="vs-val modular">€1 500–8 000</td></tr>
+        <tr><td class="vs-item">Каналізація або септик</td><td class="vs-val classic">€1 500–6 000</td><td class="vs-val modular">€1 500–6 000</td></tr>
+
+        <tr class="vs-cat"><td colspan="3">📄 Фінальні кроки</td></tr>
+        <tr><td class="vs-item">Alvará de Utilização</td><td class="vs-val classic">€300–1 500</td><td class="vs-val modular">€300–1 500</td></tr>
+        <tr><td class="vs-item">Страховка будівництва</td><td class="vs-val classic">€500–2 000</td><td class="vs-val modular">€300–1 000</td></tr>
+
+        <tr class="vs-cat"><td colspan="3">⏱️ Терміни та ризики</td></tr>
+        <tr><td class="vs-item">Термін від дозволу до заїзду</td><td class="vs-val classic">12–24 міс</td><td class="vs-val modular">8–14 міс</td></tr>
+        <tr><td class="vs-item">Ризик перевищення кошторису</td><td class="vs-val classic" style="color:#DC2626">Високий</td><td class="vs-val modular" style="color:#16A34A">Нижчий</td></tr>
+        <tr><td class="vs-item">Можливість іпотеки</td><td class="vs-val classic" style="color:#16A34A">✓ Так</td><td class="vs-val modular" style="color:#16A34A">✓ Так (на фундаменті)</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="vs-item">Орієнтовний бюджет разом</td>
+          <td class="classic">€100 000–265 000</td>
+          <td class="modular">€85 000–215 000</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <p class="vs-note reveal">* Орієнтовні діапазони для регіону Mafra / Синтра. Реальні цифри залежать від конкретної ділянки та підрядника.</p>
+
 </div>
 
 <!-- ═══ SECTION 11: ПРАКТИКА ═══ -->
