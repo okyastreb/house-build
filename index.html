@@ -219,7 +219,7 @@ body {
   position: fixed;
   inset: 0;
   background: rgba(15,25,45,.55);
-  z-index: 200;
+  z-index: 199;
   opacity: 0;
   pointer-events: none;
   transition: opacity .25s;
@@ -232,7 +232,7 @@ body {
   bottom: 0;
   width: 220px;
   background: var(--navy);
-  z-index: 100;
+  z-index: 200;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -2340,7 +2340,17 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
     document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     document.querySelector(`.sidebar-item[onclick="sidebarNav('${id}')"]`)?.classList.add('active');
-    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      // on mobile scroll to section top, below the sticky mobile bar (≈50px)
+      const section = document.getElementById(id);
+      const mobileBar = document.getElementById('mobile-bar');
+      const barH = mobileBar ? mobileBar.offsetHeight : 0;
+      const top = section.getBoundingClientRect().top + window.scrollY - barH;
+      window.scrollTo({ top, behavior: prefersReduced ? 'instant' : 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+    }
     setTimeout(() => observeReveals(), prefersReduced ? 0 : 80);
   }
 
@@ -2358,8 +2368,13 @@ footer strong { color: rgba(13,148,136,.85); font-style: normal; }
   }
 
   function sidebarNav(id) {
-    activateSection(id);
-    if (window.innerWidth <= 768) toggleSidebar();
+    if (window.innerWidth <= 768) {
+      toggleSidebar();
+      // wait for sidebar close animation before activating + scrolling
+      setTimeout(() => activateSection(id), 300);
+    } else {
+      activateSection(id);
+    }
   }
 
   function observeReveals() {
